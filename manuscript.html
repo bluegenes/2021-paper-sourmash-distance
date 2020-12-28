@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="John Doe" />
-  <meta name="author" content="Jane Roe" />
+  <meta name="author" content="N. Tessa Pierce Ward" />
+  <meta name="author" content="C. Titus Brown" />
   <meta name="dcterms.date" content="2020-12-28" />
-  <meta name="keywords" content="markdown, publishing, manubot" />
-  <title>Manuscript Title</title>
+  <meta name="keywords" content="metagenomics, OGRI, ANI" />
+  <title>Alignment-free distance estimation …</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,10 +25,10 @@
   Suggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html
   -->
   <meta name="dc.format" content="text/html" />
-  <meta name="dc.title" content="Manuscript Title" />
-  <meta name="citation_title" content="Manuscript Title" />
-  <meta property="og:title" content="Manuscript Title" />
-  <meta property="twitter:title" content="Manuscript Title" />
+  <meta name="dc.title" content="Alignment-free distance estimation ..." />
+  <meta name="citation_title" content="Alignment-free distance estimation ..." />
+  <meta property="og:title" content="Alignment-free distance estimation ..." />
+  <meta property="twitter:title" content="Alignment-free distance estimation ..." />
   <meta name="dc.date" content="2020-12-28" />
   <meta name="citation_publication_date" content="2020-12-28" />
   <meta name="dc.language" content="en-US" />
@@ -37,23 +37,23 @@
   <meta name="dc.publisher" content="Manubot" />
   <meta name="citation_journal_title" content="Manubot" />
   <meta name="citation_technical_report_institution" content="Manubot" />
-  <meta name="citation_author" content="John Doe" />
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
-  <meta name="twitter:creator" content="@johndoe" />
-  <meta name="citation_author" content="Jane Roe" />
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-  <meta name="citation_author_institution" content="Department of Whatever, University of Something" />
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+  <meta name="citation_author" content="N. Tessa Pierce Ward" />
+  <meta name="citation_author_institution" content="Department of Population Health and Reproduction, University of California, Davis" />
+  <meta name="citation_author_orcid" content="0000-0002-2942-5331" />
+  <meta name="twitter:creator" content="@saltyscientist" />
+  <meta name="citation_author" content="C. Titus Brown" />
+  <meta name="citation_author_institution" content="Department of Population Health and Reproduction, University of California, Davis" />
+  <meta name="citation_author_orcid" content="0000-0001-6001-2677" />
+  <meta name="twitter:creator" content="@ctitusbrown" />
   <link rel="canonical" href="https://bluegenes.github.io/2021-ani-paper/" />
   <meta property="og:url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta property="twitter:url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/2c01eea43607b2e9087dbf26361b27a008ba3ef9/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/2c01eea43607b2e9087dbf26361b27a008ba3ef9/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/2c01eea43607b2e9087dbf26361b27a008ba3ef9/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/de414d1ea03a44279c8f92e8742269a29c84cbe6/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/de414d1ea03a44279c8f92e8742269a29c84cbe6/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/de414d1ea03a44279c8f92e8742269a29c84cbe6/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -63,42 +63,89 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Manuscript Title</h1>
+<h1 class="title">Alignment-free distance estimation …</h1>
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://bluegenes.github.io/2021-ani-paper/v/2c01eea43607b2e9087dbf26361b27a008ba3ef9/">permalink</a>)
+(<a href="https://bluegenes.github.io/2021-ani-paper/v/de414d1ea03a44279c8f92e8742269a29c84cbe6/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/bluegenes/2021-ani-paper/tree/2c01eea43607b2e9087dbf26361b27a008ba3ef9">bluegenes/2021-ani-paper@2c01eea</a>
+from <a href="https://github.com/bluegenes/2021-ani-paper/tree/de414d1ea03a44279c8f92e8742269a29c84cbe6">bluegenes/2021-ani-paper@de414d1</a>
 on December 28, 2020.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
-<li><p><strong>John Doe</strong><br>
+<li><p><strong>N. Tessa Pierce Ward</strong><br>
 <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" />
-<a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a>
+<a href="https://orcid.org/0000-0002-2942-5331">0000-0002-2942-5331</a>
 · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" />
-<a href="https://github.com/johndoe">johndoe</a>
+<a href="https://github.com/bluegenes">bluegenes</a>
 · <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" />
-<a href="https://twitter.com/johndoe">johndoe</a><br>
+<a href="https://twitter.com/saltyscientist">saltyscientist</a><br>
 <small>
-Department of Something, University of Whatever
-· Funded by Grant XXXXXXXX
+Department of Population Health and Reproduction, University of California, Davis
+· Funded by NSF 1711984, NSF 2018911
 </small></p></li>
-<li><p><strong>Jane Roe</strong><br>
+<li><p><strong>C. Titus Brown</strong><br>
 <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" />
-<a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a>
+<a href="https://orcid.org/0000-0001-6001-2677">0000-0001-6001-2677</a>
 · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" />
-<a href="https://github.com/janeroe">janeroe</a><br>
+<a href="https://github.com/ctb">ctb</a>
+· <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" />
+<a href="https://twitter.com/ctitusbrown">ctitusbrown</a><br>
 <small>
-Department of Something, University of Whatever; Department of Whatever, University of Something
+Department of Population Health and Reproduction, University of California, Davis
+· Funded by Moore Foundation GBMF4551
 </small></p></li>
 </ul>
 <h2 class="page_break_before" id="abstract">Abstract</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Pairwise overall genome relatedness forms the basis genome-based taxonomic classification and phylogentic analysis.
+Average Nucleotide Identity (ANI) is a widely-accepted method for estimating genome similarity.
+Massive-scale sequencing of microbial genomes has necessitated a transition to alignment-free estimation of genome relatedness.
+A number of alignment-free similarity estimates exist, including several that closely approximate ANI.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Thank you to all the members and affiliates of the Lab for Data-Intensive Biology at UC Davis for providing valuable feedback on earlier versions of this manuscript. This manuscript was written using manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">1</a>]</span> and is available in a GitHub repository <span class="citation" data-cites="qASuQ8hV">[<a href="#ref-qASuQ8hV" role="doc-biblioref">2</a>]</span>.</p>
+<h3 id="author-contributions">Author Contributions</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Author</th>
+<th>Contributions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NTP</td>
+<td>Conceptualization; Methodology; Writing - Original Draft; Writing - Review and Editing; Visualization; Supervision; Funding Acquisition</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>CTB</td>
+<td>Conceptualization; Methodology; Writing - Original Draft; Writing - Review and Editing; Visualization; Supervision; Funding Acquisition</td>
+</tr>
+</tbody>
+</table>
+<h3 id="competing-interests">Competing Interests</h3>
+<p>The authors declare no competing interests.</p>
 <h2 class="page_break_before" id="references">References</h2>
 <!-- Explicitly insert bibliography here -->
-<div id="refs" role="doc-bibliography">
-
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-YuJbg3zO">
+<p>1. <strong>Open collaborative writing with Manubot</strong> <br />
+Daniel S. Himmelstein, Vincent Rubinetti, David R. Slochower, Dongbo Hu, Venkat S. Malladi, Casey S. Greene, Anthony Gitter<br />
+<em>PLOS Computational Biology</em> (2019-06-24) <a href="https://doi.org/c7np">https://doi.org/c7np</a> <br />
+DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi.1007128</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31233491">31233491</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6611653">PMC6611653</a></p>
+</div>
+<div id="ref-qASuQ8hV">
+<p>2. <a href="https://github.com/bluegenes/2021-ani-paper">https://github.com/bluegenes/2021-ani-paper</a></p>
+</div>
 </div>
 <!-- default theme -->
 

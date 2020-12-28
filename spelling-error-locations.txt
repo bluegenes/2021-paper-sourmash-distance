@@ -1,0 +1,9 @@
+content/02.introduction.md:3:phylogentic
+content/02.introduction.md:4:ANI
+content/02.introduction.md:6:ANI
+content/80.acknowledgements-contrib-etc.md:1:Acknowledgements
+content/80.acknowledgements-contrib-etc.md:3:ani
+content/80.acknowledgements-contrib-etc.md:3:bluegenes
+content/80.acknowledgements-contrib-etc.md:3:UC
+content/80.acknowledgements-contrib-etc.md:9:NTP
+content/80.acknowledgements-contrib-etc.md:11:CTB
