@@ -1,5 +1,5 @@
 ---
-title: "Alignment-free distance estimation ..."
+title: "Scaled MinHash Containment enables alignment-free distance estimation across the tree of life"
 keywords:
   - metagenomics
   - OGRI
@@ -8,7 +8,7 @@ lang: en-US
 authors:
   -
     github: bluegenes
-    name: N. Tessa Pierce Ward
+    name: N. Tessa Pierce-Ward
     initials: NTP
     orcid: 0000-0002-2942-5331
     twitter: saltyscientist
