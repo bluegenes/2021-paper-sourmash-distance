@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="N. Tessa Pierce-Ward" />
   <meta name="author" content="C. Titus Brown" />
-  <meta name="dcterms.date" content="2021-01-25" />
+  <meta name="dcterms.date" content="2021-01-29" />
   <meta name="keywords" content="metagenomics, OGRI, ANI" />
   <title>Scaled MinHash Containment enables alignment-free distance estimation across the tree of life</title>
   <style>
@@ -29,8 +29,8 @@
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-01-25" />
-  <meta name="citation_publication_date" content="2021-01-25" />
+  <meta name="dc.date" content="2021-01-29" />
+  <meta name="citation_publication_date" content="2021-01-29" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -51,9 +51,9 @@
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/4be6d08aed22a04d43a5839413cb3036a6b55f0e/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/4be6d08aed22a04d43a5839413cb3036a6b55f0e/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/4be6d08aed22a04d43a5839413cb3036a6b55f0e/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/ed3192704a791ec0d04baabfe2d54b4cc826928b/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/ed3192704a791ec0d04baabfe2d54b4cc826928b/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/ed3192704a791ec0d04baabfe2d54b4cc826928b/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -67,10 +67,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://bluegenes.github.io/2021-ani-paper/v/4be6d08aed22a04d43a5839413cb3036a6b55f0e/">permalink</a>)
+(<a href="https://bluegenes.github.io/2021-ani-paper/v/ed3192704a791ec0d04baabfe2d54b4cc826928b/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/bluegenes/2021-ani-paper/tree/4be6d08aed22a04d43a5839413cb3036a6b55f0e">bluegenes/2021-ani-paper@4be6d08</a>
-on January 25, 2021.
+from <a href="https://github.com/bluegenes/2021-ani-paper/tree/ed3192704a791ec0d04baabfe2d54b4cc826928b">bluegenes/2021-ani-paper@ed31927</a>
+on January 29, 2021.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -143,13 +143,13 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 <li>AAI::phylogeny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1236649/</li>
 </ul>
 <h2 id="results">Results</h2>
-<h3 id="protein-k-mers-enable-similarity-searches-at-increased-evolutionary-distances">Protein k-mers enable similarity searches at increased evolutionary distances</h3>
+<h3 id="protein-k-mer-containment-enables-similarity-searches-at-increased-evolutionary-distances">Protein k-mer containment enables similarity searches at increased evolutionary distances</h3>
 <p><strong>(DNA vs Protein)</strong>
 <em>(just containment, no ANI/AAI?)</em>
 <em>dayhoff or just protein?</em></p>
 <p>Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes.</p>
 <p>For , e.g. Pseudomonas, XX% of k-mers are shared within the chosen/published genomes within species. For all published genomes within the genus, a median of xx% of k-mers are shared between genomes of one species and genomes of the a different species in the same genus.</p>
-<p>at ksize of 10…
+<p>rankinfo … at ksize of 10…
 -xx% of DNA k-mers are shared within-species
 -yy% of protein k-mers are shared within-species
 - zz% of DNA k-mers are shared within-genus
@@ -159,13 +159,8 @@ containent = % of a genome’s k-mers that are shared
 – do using ALL of gtdb, BUT, start with just a single set of genomes.. e.g. Pseudomonas? == similar to “shared k-mers” paper <span class="citation" data-cites="42mqIVmU">[<a href="#ref-42mqIVmU" role="doc-biblioref">20</a>]</span></p>
 <div id="fig:evolpathsContain" class="fignos">
 <figure>
-<img src="images/anchor-containment.nucl-prot.png" alt="" /><figcaption><span>Figure 1:</span> <strong>Protein k-mers facilitate comparisons across species</strong>
-This currently uses the evolutionary paths dataset. Perhaps better to demonstrate with a different test set – say, just the species, genus family level, using something like Pseudomonas that has a lot of published genomes. Also show jaccard to emphasize how it gets progressively worse when you start comparing genomes that are different sizes? Or separate figure for this…?</figcaption>
-</figure>
-</div>
-<div id="fig:evolpathsANI" class="fignos">
-<figure>
-<img src="images/anchor-evoldistPC.nucl3-prot.png" alt="" /><figcaption><span>Figure 2:</span> <strong>Containment-based ANI, AAI estimates, evolpaths</strong></figcaption>
+<img src="images/pseudomonas_jaccard_vs_containment_prot10.png" alt="" /><figcaption><span>Figure 1:</span> <strong>Protein k-mer containment facilitates genus-level comparisons</strong>
+10k pseudomonas genome sequences, median containment at each alphabet</figcaption>
 </figure>
 </div>
 <h4 id="k-size-selection-for-optimal-comparisons-distance-estimation">k-size selection for optimal comparisons / distance estimation</h4>
@@ -176,6 +171,19 @@ This currently uses the evolutionary paths dataset. Perhaps better to demonstrat
 </ul>
 <p>because kmer size matters –&gt; conversion to AAI is useful!?
 conversion to AAI does two things: accounts for k-mer length, …</p>
+<div id="fig:evolpathsContain" class="fignos">
+<figure>
+<img src="images/anchor-containment.nucl-prot.png" alt="" /><figcaption><span>Figure 2:</span> <strong>Protein k-mers facilitate comparisons across species</strong>
+This currently uses the evolutionary paths dataset. Perhaps better to demonstrate with a different test set – say, just the species, genus family level, using something like Pseudomonas that has a lot of published genomes. Also show jaccard to emphasize how it gets progressively worse when you start comparing genomes that are different sizes? Or separate figure for this…?</figcaption>
+</figure>
+</div>
+<div id="fig:evolpathsANI" class="fignos">
+<figure>
+<img src="images/anchor-evoldistPC.nucl3-prot.png" alt="" /><figcaption><span>Figure 3:</span> <strong>Containment-based ANI, AAI estimates, evolpaths</strong></figcaption>
+</figure>
+</div>
+<pre><code>** core vs accessory distances **
+ANI/AAI == really getting at _core_</code></pre>
 <h3 id="protein-containment-searches-enable-sensitivefastaccurate-taxonomic-classification">Protein containment searches enable Sensitive/fast/accurate taxonomic classification</h3>
 <p><em>(just containment, no ANI/AAI)</em></p>
 <p>to do, classification:
@@ -194,7 +202,7 @@ conversion to AAI does two things: accounts for k-mer length, …</p>
 <p>[protein vs dna]</p>
 <div id="fig:classification_sensitivity" class="fignos">
 <figure>
-<img src="images/protein-sensitivity.rep-genus.gather.png" alt="" /><figcaption><span>Figure 3:</span> Protein classification sensitivity</figcaption>
+<img src="images/protein-sensitivity.rep-genus.gather.png" alt="" /><figcaption><span>Figure 4:</span> Protein classification sensitivity</figcaption>
 </figure>
 </div>
 <p>include 6-frame translation works well for database search
@@ -211,7 +219,7 @@ conversion to AAI does two things: accounts for k-mer length, …</p>
 <p>Max containment normalizes the shared content by the smaller of the two genomes</p>
 <div id="fig:containmentANI" class="fignos">
 <figure>
-<img src="images/containment-ANI-AAI.png" alt="" /><figcaption><span>Figure 4:</span> <strong>Max Containment to ANI and AAI.</strong>
+<img src="images/containment-ANI-AAI.png" alt="" /><figcaption><span>Figure 5:</span> <strong>Max Containment to ANI and AAI.</strong>
 Containment calculation is guaranteed to be more similar to traditional calculation of Average Nucleotide Identity and Average Amino Acid Identity, which compared only the sections of genome that align. The shared k-mer content (containment numerator) can be thought of as the alignable sections of the genomes.
 The denominator of the Jaccard index is the alignable sections + the unalignable sections.
 The lower bound of the containment denominator will be the exact same as the numerator at 100% containment, where all k-mers are found within the comparison dataset. The upper bound will be the same as the Jaccard denominator, where all k-mers of the comparison dataset are found within the query dataset, and it is the query that contains any additional nonshared k-mers/unalignable sequence.</figcaption>
