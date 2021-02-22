@@ -11,7 +11,7 @@ containent
 contig
 contigs
 cov
-CTB
+ctb
 ctitusbrown
 dataset
 datasets
@@ -23,7 +23,7 @@ evolpaths
 Franzosa
 GBMF
 genomic
-gtdb
+GTDB
 iHMP
 Irber
 Jaccard
