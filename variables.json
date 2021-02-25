@@ -7,12 +7,12 @@
       "ANI"
     ],
     "lang": "en-US",
-    "date-meta": "2021-02-22",
+    "date-meta": "2021-02-25",
     "author-meta": [
       "N. Tessa Pierce-Ward",
       "C. Titus Brown"
     ],
-    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta name=\"dc.title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta name=\"citation_title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta property=\"og:title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta property=\"twitter:title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta name=\"dc.date\" content=\"2021-02-22\" />\n<meta name=\"citation_publication_date\" content=\"2021-02-22\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"N. Tessa Pierce-Ward\" />\n<meta name=\"citation_author_institution\" content=\"Department of Population Health and Reproduction, University of California, Davis\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0002-2942-5331\" />\n<meta name=\"twitter:creator\" content=\"@saltyscientist\" />\n<meta name=\"citation_author\" content=\"C. Titus Brown\" />\n<meta name=\"citation_author_institution\" content=\"Department of Population Health and Reproduction, University of California, Davis\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-6001-2677\" />\n<meta name=\"twitter:creator\" content=\"@ctitusbrown\" />\n<link rel=\"canonical\" href=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta property=\"og:url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta property=\"twitter:url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta name=\"citation_pdf_url\" content=\"https://bluegenes.github.io/2021-ani-paper/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://bluegenes.github.io/2021-ani-paper/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->",
+    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta name=\"dc.title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta name=\"citation_title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta property=\"og:title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta property=\"twitter:title\" content=\"Scaled MinHash Containment enables alignment-free distance estimation across the tree of life\" />\n<meta name=\"dc.date\" content=\"2021-02-25\" />\n<meta name=\"citation_publication_date\" content=\"2021-02-25\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"N. Tessa Pierce-Ward\" />\n<meta name=\"citation_author_institution\" content=\"Department of Population Health and Reproduction, University of California, Davis\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0002-2942-5331\" />\n<meta name=\"twitter:creator\" content=\"@saltyscientist\" />\n<meta name=\"citation_author\" content=\"C. Titus Brown\" />\n<meta name=\"citation_author_institution\" content=\"Department of Population Health and Reproduction, University of California, Davis\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-6001-2677\" />\n<meta name=\"twitter:creator\" content=\"@ctitusbrown\" />\n<link rel=\"canonical\" href=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta property=\"og:url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta property=\"twitter:url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://bluegenes.github.io/2021-ani-paper/\" />\n<meta name=\"citation_pdf_url\" content=\"https://bluegenes.github.io/2021-ani-paper/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://bluegenes.github.io/2021-ani-paper/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->",
     "bibliography": [
       "content/manual-references.json"
     ],
@@ -22,7 +22,7 @@
     "manubot-clear-requests-cache": false
   },
   "manubot": {
-    "date": "February 22, 2021",
+    "date": "February 25, 2021",
     "authors": [
       {
         "github": "bluegenes",
@@ -70,15 +70,15 @@
       "repo_slug": "bluegenes/2021-ani-paper",
       "repo_owner": "bluegenes",
       "repo_name": "2021-ani-paper",
-      "commit": "2d21d10d08fd6de0bcc8f28e393314dd2e60763d",
-      "triggering_commit": "2d21d10d08fd6de0bcc8f28e393314dd2e60763d",
-      "build_url": "https://github.com/bluegenes/2021-ani-paper/commit/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/checks",
+      "commit": "1628f1d37175933ab4bee36013415f3c5ffc560a",
+      "triggering_commit": "1628f1d37175933ab4bee36013415f3c5ffc560a",
+      "build_url": "https://github.com/bluegenes/2021-ani-paper/commit/1628f1d37175933ab4bee36013415f3c5ffc560a/checks",
       "job_url": "https://github.com/bluegenes/2021-ani-paper/runs/run3"
     },
     "html_url": "https://bluegenes.github.io/2021-ani-paper/",
     "pdf_url": "https://bluegenes.github.io/2021-ani-paper/manuscript.pdf",
-    "html_url_versioned": "https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/",
-    "pdf_url_versioned": "https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/manuscript.pdf",
+    "html_url_versioned": "https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/",
+    "pdf_url_versioned": "https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/manuscript.pdf",
     "manubot_version": "0.5.0",
     "rootstock_commit": "2191d929a12a233347ee79c673b8f2971c10e6dd",
     "manuscript_stats": {

@@ -11,7 +11,7 @@ containent
 contig
 contigs
 cov
-ctb
+CTB
 ctitusbrown
 dataset
 datasets

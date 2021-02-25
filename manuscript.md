@@ -5,7 +5,7 @@ keywords:
 - OGRI
 - ANI
 lang: en-US
-date-meta: '2021-02-22'
+date-meta: '2021-02-25'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -19,8 +19,8 @@ header-includes: |-
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-02-22" />
-  <meta name="citation_publication_date" content="2021-02-22" />
+  <meta name="dc.date" content="2021-02-25" />
+  <meta name="citation_publication_date" content="2021-02-25" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -41,9 +41,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,10 +65,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-ani-paper/v/2d21d10d08fd6de0bcc8f28e393314dd2e60763d/))
+([permalink](https://bluegenes.github.io/2021-ani-paper/v/1628f1d37175933ab4bee36013415f3c5ffc560a/))
 was automatically generated
-from [bluegenes/2021-ani-paper@2d21d10](https://github.com/bluegenes/2021-ani-paper/tree/2d21d10d08fd6de0bcc8f28e393314dd2e60763d)
-on February 22, 2021.
+from [bluegenes/2021-ani-paper@1628f1d](https://github.com/bluegenes/2021-ani-paper/tree/1628f1d37175933ab4bee36013415f3c5ffc560a)
+on February 25, 2021.
 </em></small>
 
 ## Authors
