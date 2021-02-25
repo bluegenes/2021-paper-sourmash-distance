@@ -1,5 +1,8 @@
 # Automated scholarly manuscripts on GitHub
 
+
+**while this repo is private, these manuscript links won't work. Please look in the `output` folder!**
+
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
 [![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://bluegenes.github.io/2021-ani-paper/)
