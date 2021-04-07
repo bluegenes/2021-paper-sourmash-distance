@@ -5,7 +5,7 @@ keywords:
 - OGRI
 - ANI
 lang: en-US
-date-meta: '2021-03-30'
+date-meta: '2021-04-07'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -19,8 +19,8 @@ header-includes: |-
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-03-30" />
-  <meta name="citation_publication_date" content="2021-03-30" />
+  <meta name="dc.date" content="2021-04-07" />
+  <meta name="citation_publication_date" content="2021-04-07" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -57,7 +57,7 @@ manubot-clear-requests-cache: false
 <small><em>
 This manuscript
 was automatically generated
-on March 30, 2021.
+on April 7, 2021.
 </em></small>
 
 ## Authors
@@ -159,12 +159,36 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 
 ## Results
 
-	
-### Protein k-mer containment enables similarity searches at increased evolutionary distances 
+
+### GTDB "Evolutionary Paths" Dataset
+
+The Genome Taxonomy Database (GTDB) provides a genome-based taxonomy for bacterial and archaeal genomes [@doi:10.1038/s41587-020-0501-8].
+To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
+For each genus with at least two species clusters, one representative genome was randomly selected as a path "anchor" genome.
+To build the path, one additional genome was selected from the representative genomes matching the anchor's taxonomy at each higher taxonomic rank.
+Each path thus consisted of seven genomes: an anchor genome, a genome matching anchor taxonomy down to the genus level, one matching anchor taxonomy to the family level, one matching to the order level, and so on.
+This creates a gradient of similarity, where comparisons to the anchor genome range from genus-level to superkingdom-level.
+Path selection using the representative genomes in GTDB release 95 resulted in 2957 paths comprised of 6690 unique genomes.
+These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
+While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
+
+
+### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
 **(DNA vs Protein)**
 - _(just containment, no ANI/AAI)_
 - _include dayhoff or just protein?_
 
+K-mer analysis methods enable similarity detection as low as a single shared k-mer between divergent genomes. As a result, exact matching long nucleotide k-mers can be used for taxonomic classification between closely related genomes, including at the strain, species, and genus level (k-mer lengths 51, 31, and 21, respectively). At larger evolutionary distances, accumulated nucleotide divergence limits the utility of exact nucleotide k-mer matching. 
+
+As protein sequences are more conserved than their coding nucleotide sequences, exact matching of protein k-mers can detect sequence similarity in spite of synonymous nucleotide substitutions that may have accumulated across the two sequences.
+
+ 
+
+
+Exact matching of k-mers has long been deemed a shortcoming for k-mer based analyses, limiting similarity detection power across larger evolutionary distances. However, protein k-mers (and k-mers leveraging reduced protein alphabets) 
+
+
+Using nucleotide k-mersThis property allows for low-level homology detection at the n
 
 Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes. 
 
@@ -288,7 +312,6 @@ Alignment-based metrics are looking at the specific sequence variation of aligne
 
 
 ## Methods
-
 
 
 ## Availability of data and materials
