@@ -3,6 +3,8 @@ Acknowledgements
 alignable
 amplicon
 ANI
+Archaea
+archaeal
 benchmarking
 bluegenes
 clade
@@ -11,7 +13,7 @@ containent
 contig
 contigs
 cov
-CTB
+ctb
 ctitusbrown
 dataset
 datasets
@@ -33,6 +35,7 @@ ksizes
 LCA
 mer
 mers
+mersThis
 metagenome
 metagenomes
 metagenomic
@@ -40,6 +43,7 @@ metatranscriptomic
 MinHash
 nonshared
 NTP
+nucl
 num
 OGRI
 orthologous
@@ -48,7 +52,7 @@ phylogenomic
 plasmids
 polymorphims
 proteome
-pseudomonas
+Pseudomonas
 rankinfo
 RO
 rRNA
@@ -56,6 +60,8 @@ saltyscientist
 similiarity
 subsampling
 subsequences
+superkingdom
+tbd
 thumper
 Tk
 UC
