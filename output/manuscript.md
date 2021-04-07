@@ -92,22 +92,11 @@ on April 7, 2021.
 
 ## Abstract {.page_break_before}
 
-**Background**
-Sequence similarity estimation is critical for genome analyses ranging from taxonomic classification to phylogenetic reconstruction.
-Current practices are still insufficient for environmental samples. Even best-practices samples can only assign a small fraction of metagenomic sequencing to known species...
-Given the scale of sequencing data now available, there is a great need for tools that can accurately estimate pairwise genome relatedness in an assembly-free and alignment-free manner.
+Sequence similarity estimation is critical for genome analyses ranging from taxonomic classification to phylogenetic reconstruction. Here, we introduce an alignment-free k-mer based method for quickly and accurately estimating pairwise sequence similarity, including Average Nucleotide Identity (ANI) and Average Amino Acid Identity (AAI). Because this method is assembly-independent and sequence-agnostic, it can be applied to both DNA and protein sequences across the tree of life. We demonstrate the utility of this method with similarity comparisons and protein taxonomic classification for benchmarking sets from the genome-based prokaryotic taxonomy (GTDB). We then extend the analysis to highly divergent and incomplete datasets as well as alternate domains of life.
 
-**Results**
-Here, we introduce an alignment-free k-mer based method for quickly and accurately estimating pairwise sequence similarity, including Average Nucleotide Identity (ANI) and Average Amino Acid Identity (AAI).
-Because this method is assembly-independent and sequence-agnostic, it can be applied to both DNA and protein sequence data from across the tree of life. 
-We demonstrate the utility of this technique with two primary examples: phylogenetic reconstruction of the genome-based prokaryotic taxonomy (GTDB) and fast and accurate microbial taxonomic classification.
-To demonstrate utility in other domains, we demonstrate proof-of-concept analysis on two published eukaryotic and viral datasets.
-
-**Conclusions**
-Containment-based pairwise distance estimation via Scaled Minhash enables accurate assembly-free and alignment-free phylogenomic reconstruction and taxonomic classification across a wide range of evolutionary distances.
 
 ## Keywords (3-10)
-Overall Genome Relatedness Index (OGRI), Average Nucleotide Identity (ANI), Average Amino Acid Identity (AAI), pairwise evolutionary distance
+Overall Genome Relatedness Index (OGRI), Average Nucleotide Identity (ANI), Average Amino Acid Identity (AAI), pairwise evolutionary distance, Jaccard Index, Containment Index, MinHash, Scaled MinHash, k-mer
 
 
 
@@ -160,30 +149,30 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 ## Results
 _somewhat mixed results and methods for now_
 
-### GTDB "Evolutionary Paths" Dataset
-_To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes._
-
 
 ### Scaled Minhash jaccard enables accurate distance estimation
 _(Correlation between Scaled MinHash Jaccard/Containment and ANI, AAI)_
 
+To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
 Each evolutionary path offers six genome similarity comparisons at a range of evolutionary distances. 
+For each genome comparison, we estimated Average Nucleotide Identity (ANI) using fastANI [@doi:10.1038/s41467-018-07641-9] and Average Amino Acid Identity (AAI) using compareM [@url: https://github.com/dparks1134/CompareM].
 
- genome comparison, we estimated Average Nucleotide Identity (ANI) using fastANI [@doi:10.1038/s41467-018-07641-9] and Average Amino Acid Identity (AAI) using compareM [@url: https://github.com/dparks1134/CompareM]. We then estimated Scaled MinHash Jaccard and Containment for e
+![**Scaled MinHash ANI vs FastANI**
+GTDB Evolpaths Dataset](images/gtdb95-evolpaths.ANI-concordance.png){#fig:evolpathsANIvsfastANI}
 
-
-
-
-
-### Scaled MinHash Containment facilitates taxonomic classification
-
-
-### Scaled MinHash Containment is robust to genome completeness
+![**Scaled MinHash AAI vs CompareM**
+GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpathsAAIvsCompareM}
 
 
+- Scaled MinHash Containment facilitates taxonomic classification
+- Scaled MinHash Containment is robust to genome completeness
 
 
 ### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
+
+![**Scaled MinHash AAI vs CompareM**
+GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpathsANIAAI}
+
 **(DNA vs Protein)**
 - _(just containment, no ANI/AAI)_
 - _include dayhoff or just protein?_
@@ -192,13 +181,11 @@ K-mer analysis methods enable similarity detection as low as a single shared k-m
 
 As protein sequences are more conserved than their coding nucleotide sequences, exact matching of protein k-mers can detect sequence similarity in spite of synonymous nucleotide substitutions that may have accumulated across the two sequences.
 
- 
-
-
 Exact matching of k-mers has long been deemed a shortcoming for k-mer based analyses, limiting similarity detection power across larger evolutionary distances. However, protein k-mers (and k-mers leveraging reduced protein alphabets) 
 
 
-Using nucleotide k-mersThis property allows for low-level homology detection at the n
+Using nucleotide k-mers
+This property allows for low-level homology detection at the n
 
 Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes. 
 
@@ -313,19 +300,14 @@ Alignment-based metrics are looking at the specific sequence variation of aligne
 
 ## Discussion
 
-
-
-### Comparison with other alignment-free methods (advantages, disadvantages, etc)
-
-### Limitations
-
-### Future Directions
-
-### Summary
+- Limitations
+- Future Directions
+- Summary
 
 
 ## Conclusions
 
+Containment-based pairwise distance estimation via Scaled Minhash enables accurate assembly-free and alignment-free phylogenomic reconstruction and taxonomic classification across a wide range of evolutionary distances.
 
 ## Methods
 
@@ -394,7 +376,7 @@ Path selection using the representative genomes in GTDB release 95 resulted in 2
 These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
 While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
 
-### Correlation between Scaled MinHash Sequence Identity and Standard Methods
+### Scaled MinHash Sequence Identity Correlates with Standard Methods
 
 FastANI v1.32 ([@doi:10.1038/s41467-018-07641-9]; run with default parameters)  was used to obtain Average Nucleotide Identity between the anchor genome and each additional genome in its evolutionary path.
 FastANI is targeted at ANI values between 80%-100%, so only values in this range are considered "trusted" and used in **assessing the correlation between Scaled MinHash estimates and FastANI._(TBD)_**
