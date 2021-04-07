@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="N. Tessa Pierce-Ward" />
   <meta name="author" content="C. Titus Brown" />
-  <meta name="dcterms.date" content="2021-02-16" />
+  <meta name="dcterms.date" content="2021-03-30" />
   <meta name="keywords" content="metagenomics, OGRI, ANI" />
   <title>Scaled MinHash Containment enables alignment-free distance estimation across the tree of life</title>
   <style>
@@ -29,8 +29,8 @@
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-02-16" />
-  <meta name="citation_publication_date" content="2021-02-16" />
+  <meta name="dc.date" content="2021-03-30" />
+  <meta name="citation_publication_date" content="2021-03-30" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -59,7 +59,7 @@
 <p><small><em>
 This manuscript
 was automatically generated
-on February 16, 2021.
+on March 30, 2021.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -111,7 +111,7 @@ play a role in disease.[from RO1]”. This phenomenon is not restricted to metag
 <p>To increase sensitivity of alignment-free methods, modified k-mer approaches have been introduced, including spaced seeds /split k-mers, which accommodate polymorphic sites in highly similar genomes (CITE).
 For larger evolutionary distances, protein-based comparisons have long been the gold-standard approach for taxonomic and functional annotation, as protein sequence is more conserved than the underlying DNA sequence <span class="citation" data-cites="jcOtxABy 4R96QRcV">[<a href="#ref-jcOtxABy" role="doc-biblioref">4</a>,<a href="#ref-4R96QRcV" role="doc-biblioref">5</a>]</span>.
 As microbial and viral genomes are gene-dense, [MinHash-based] alignment-free comparisons of translated protein sequence have been shown to increase sensitivity for taxonomic classification and genome discovery <span class="citation" data-cites="P2zJQDwU 19AP1jyqE">[<a href="#ref-P2zJQDwU" role="doc-biblioref">6</a>,<a href="#ref-19AP1jyqE" role="doc-biblioref">7</a>]</span>.
-Here, we demonstrate the utility of protein k-mer comparisons for phylogenomic reconstruction and taxonomic classification at larger evolutionary distances and across both gene-rich and gene-sparse sequences.
+Here, we demonstrate the utility of protein k-mer comparisons for phylogenomic reconstruction and taxonomic classification at larger evolutionary distances and across both gene-rich and [gene-sparse] sequences.
 We use Scaled Minhash subsampling to facilitate conducting these comparisons at scale <span class="citation" data-cites="XwgHsst">[<a href="#ref-XwgHsst" role="doc-biblioref">8</a>]</span>.</p>
 <p>Scaled Minhash is a MinHash variant for selecting and hashing a set of representative k-mers from a sequence dataset <span class="citation" data-cites="XwgHsst">[<a href="#ref-XwgHsst" role="doc-biblioref">8</a>]</span>. Unlike traditional MinHash, Scaled MinHash sketches scale with the size of the dataset, meaning each sketch is comprised of the chosen proportion of k-mers in the input dataset, rather than a chosen number of k-mers.
 Downsampling sequencing datasets in this way enables estimation of containment, which has been shown to permit more accurate estimation of genomic distance, particularly for genomes of very different lengths <span class="citation" data-cites="s8orJ7KE 10ppWuOJ6">[<a href="#ref-s8orJ7KE" role="doc-biblioref">9</a>,<a href="#ref-10ppWuOJ6" role="doc-biblioref">10</a>]</span>.
@@ -123,7 +123,7 @@ ANI has emerged as the most widely-accepted method for estimating pairwise simil
 Recent research appears to confirm 95% ANI species threshold for prokaryotic species, although there is some debate as to the universality of this threshold <span class="citation" data-cites="12fAf7MKk 15zxN1L1C xnsBJDFT">[<a href="#ref-12fAf7MKk" role="doc-biblioref">15</a>,<a href="#ref-15zxN1L1C" role="doc-biblioref">16</a>,<a href="#ref-xnsBJDFT" role="doc-biblioref">17</a>]</span>.
 AAI thresholds have been proposed for higher taxonomic ranks, &lt;45%, 45-65% and 65-95% for family, genus, and species <span class="citation" data-cites="3z6VIhcE 16tNERpVv">[<a href="#ref-16tNERpVv" role="doc-biblioref">13</a>,<a href="#ref-3z6VIhcE" role="doc-biblioref">18</a>]</span>.
 While traditional alignment-based estimation of ANI and AAI are computationally intensive, sketching-based estimates and sketching-facilitated estimates have permitted ANI calculations at the scale of whole-databases <span class="citation" data-cites="mH9pzoIn 19AP1jyqE 12fAf7MKk">[<a href="#ref-mH9pzoIn" role="doc-biblioref">1</a>,<a href="#ref-19AP1jyqE" role="doc-biblioref">7</a>,<a href="#ref-12fAf7MKk" role="doc-biblioref">15</a>]</span>.</p>
-<p>Pierce-Ward et al., 2021 showed that Scaled MinHash containment estimates can be used to approximate both ANI (nucleotide k-mers) and Average Amino Acid Identity (AAI; protein k-mers), while accounting for the non-independence of mutated k-mers <span class="citation" data-cites="cMPL2ulo">[<a href="#ref-cMPL2ulo" role="doc-biblioref">19</a>]</span>.
+<p>[Pierce-Ward et al., 2021 (tbd technical paper)] showed that Scaled MinHash containment estimates can be used to approximate both ANI (nucleotide k-mers) and Average Amino Acid Identity (AAI; protein k-mers), while accounting for the non-independence of mutated k-mers <span class="citation" data-cites="cMPL2ulo">[<a href="#ref-cMPL2ulo" role="doc-biblioref">19</a>]</span>.
 Furthermore, Scaled MinHash containment estimates work well for genome pairs of varying lengths and for compositional analysis of metagenome samples.
 Taken together, these properties enable robust assembly and alignment-free pairwise relatedness estimation that can be used on sequences separated by a wide range of evolutionary distances.
 Here, we demonstrate that the utility of Scaled MinHash protein containment, both used directly and a an approximation of ANI and AAI, for taxonomic classification and phylogenomic reconstruction for species across the tree of life.</p>
@@ -134,8 +134,8 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 <h2 id="results">Results</h2>
 <h3 id="protein-k-mer-containment-enables-similarity-searches-at-increased-evolutionary-distances">Protein k-mer containment enables similarity searches at increased evolutionary distances</h3>
 <p><strong>(DNA vs Protein)</strong>
-<em>(just containment, no ANI/AAI?)</em>
-<em>dayhoff or just protein?</em></p>
+- <em>(just containment, no ANI/AAI)</em>
+- <em>include dayhoff or just protein?</em></p>
 <p>Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes.</p>
 <p>For , e.g. Pseudomonas, XX% of k-mers are shared within the chosen/published genomes within species. For all published genomes within the genus, a median of xx% of k-mers are shared between genomes of one species and genomes of the a different species in the same genus.</p>
 <p>rankinfo … at ksize of 10…
