@@ -52,7 +52,7 @@ phylogenomic
 plasmids
 polymorphims
 proteome
-Pseudomonas
+pseudomonas
 rankinfo
 RO
 rRNA

@@ -41,9 +41,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/6239563092f6b9d6b80ea3781085ba1ca3a50aef/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/6239563092f6b9d6b80ea3781085ba1ca3a50aef/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/6239563092f6b9d6b80ea3781085ba1ca3a50aef/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/de4bc206c4fd3a8fbe310e37c4d915e3b3aabedd/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/de4bc206c4fd3a8fbe310e37c4d915e3b3aabedd/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/de4bc206c4fd3a8fbe310e37c4d915e3b3aabedd/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,9 +65,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-ani-paper/v/6239563092f6b9d6b80ea3781085ba1ca3a50aef/))
+([permalink](https://bluegenes.github.io/2021-ani-paper/v/de4bc206c4fd3a8fbe310e37c4d915e3b3aabedd/))
 was automatically generated
-from [bluegenes/2021-ani-paper@6239563](https://github.com/bluegenes/2021-ani-paper/tree/6239563092f6b9d6b80ea3781085ba1ca3a50aef)
+from [bluegenes/2021-ani-paper@de4bc20](https://github.com/bluegenes/2021-ani-paper/tree/de4bc206c4fd3a8fbe310e37c4d915e3b3aabedd)
 on April 7, 2021.
 </em></small>
 
