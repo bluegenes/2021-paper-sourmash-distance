@@ -132,16 +132,15 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 <li>AAI::phylogeny https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1236649/</li>
 </ul>
 <h2 id="results">Results</h2>
+<p><em>somewhat mixed results and methods for now</em></p>
 <h3 id="gtdb-evolutionary-paths-dataset">GTDB “Evolutionary Paths” Dataset</h3>
-<p>The Genome Taxonomy Database (GTDB) provides a genome-based taxonomy for bacterial and archaeal genomes <span class="citation" data-cites="cN1LdTev">[<a href="#ref-cN1LdTev" role="doc-biblioref">20</a>]</span>.
-To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of “evolutionary paths” from the set of 31k representative GTDB genomes.
-For each genus with at least two species clusters, one representative genome was randomly selected as a path “anchor” genome.
-To build the path, one additional genome was selected from the representative genomes matching the anchor’s taxonomy at each higher taxonomic rank.
-Each path thus consisted of seven genomes: an anchor genome, a genome matching anchor taxonomy down to the genus level, one matching anchor taxonomy to the family level, one matching to the order level, and so on.
-This creates a gradient of similarity, where comparisons to the anchor genome range from genus-level to superkingdom-level.
-Path selection using the representative genomes in GTDB release 95 resulted in 2957 paths comprised of 6690 unique genomes.
-These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
-While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances.</p>
+<p><em>To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of “evolutionary paths” from the set of 31k representative GTDB genomes.</em></p>
+<h3 id="scaled-minhash-jaccard-enables-accurate-distance-estimation">Scaled Minhash jaccard enables accurate distance estimation</h3>
+<p><em>(Correlation between Scaled MinHash Jaccard/Containment and ANI, AAI)</em></p>
+<p>Each evolutionary path offers six genome similarity comparisons at a range of evolutionary distances.</p>
+<p>genome comparison, we estimated Average Nucleotide Identity (ANI) using fastANI <span class="citation" data-cites="12fAf7MKk">[<a href="#ref-12fAf7MKk" role="doc-biblioref">15</a>]</span> and Average Amino Acid Identity (AAI) using compareM <span class="citation" data-cites="url">[<span class="citeproc-not-found" data-reference-id="url"><strong>???</strong></span> https://github.com/dparks1134/CompareM]</span>. We then estimated Scaled MinHash Jaccard and Containment for e</p>
+<h3 id="scaled-minhash-containment-facilitates-taxonomic-classification">Scaled MinHash Containment facilitates taxonomic classification</h3>
+<h3 id="scaled-minhash-containment-is-robust-to-genome-completeness">Scaled MinHash Containment is robust to genome completeness</h3>
 <h3 id="k-mer-containment-searches-enable-similarity-detection-at-increased-evolutionary-distances-nucl-and-protein">k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)</h3>
 <p><strong>(DNA vs Protein)</strong>
 - <em>(just containment, no ANI/AAI)</em>
@@ -159,7 +158,7 @@ While paths are limited to taxonomies with at least two GTDB representative geno
 … etc
 == median or mean containment at rank?
 containent = % of a genome’s k-mers that are shared
-– do using ALL of gtdb, BUT, start with just a single set of genomes.. e.g. Pseudomonas? == similar to “shared k-mers” paper <span class="citation" data-cites="42mqIVmU">[<a href="#ref-42mqIVmU" role="doc-biblioref">21</a>]</span></p>
+– do using ALL of gtdb, BUT, start with just a single set of genomes.. e.g. Pseudomonas? == similar to “shared k-mers” paper <span class="citation" data-cites="42mqIVmU">[<a href="#ref-42mqIVmU" role="doc-biblioref">20</a>]</span></p>
 <div id="fig:evolpathsContain" class="fignos">
 <figure>
 <img src="images/pseudomonas_jaccard_vs_containment_prot10.png" alt="" /><figcaption><span>Figure 1:</span> <strong>Protein k-mer containment facilitates genus-level comparisons</strong>
@@ -212,7 +211,7 @@ ANI/AAI == really getting at _core_</code></pre>
 </div>
 <p>include 6-frame translation works well for database search
 (sensitivity/specificity of Prodigal-translated vs 6-frame translated)</p>
-<p>CAT/BAT paper <span class="citation" data-cites="2YyPxapj">[<a href="#ref-2YyPxapj" role="doc-biblioref">22</a>]</span>
+<p>CAT/BAT paper <span class="citation" data-cites="2YyPxapj">[<a href="#ref-2YyPxapj" role="doc-biblioref">21</a>]</span>
 (“cat” = contig annotation, “bat” = bin annotation)</p>
 <p>main point: more k-mers are shared = more k-mers available for matching</p>
 <h4 id="classification-of-incomplete-and-contaminated-genomes">Classification of incomplete and contaminated genomes</h4>
@@ -242,6 +241,45 @@ The lower bound of the containment denominator will be the exact same as the num
 <h3 id="comparison-with-other-alignment-free-methods-advantages-disadvantages-etc-1">Comparison with other alignment-free methods (advantages, disadvantages, etc)</h3>
 <h2 id="conclusions">Conclusions</h2>
 <h2 id="methods">Methods</h2>
+<h3 id="scaled-minhash-sketching-with-sourmash">Scaled MinHash Sketching with Sourmash</h3>
+<p>As implemented in sourmash <span class="citation" data-cites="XwgHsst ART4gJKs ExvjTLL3">[<a href="#ref-XwgHsst" role="doc-biblioref">8</a>,<a href="#ref-ART4gJKs" role="doc-biblioref">22</a>,<a href="#ref-ExvjTLL3" role="doc-biblioref">23</a>]</span>, Scaled MinHash is a MinHash variant that uses a scaling factor to subsample the unique k-mers in the dataset to the chosen proportion (1/<code>scaled</code>).
+As k-mers are randomized prior to systematic subsampling, Scaled MinHash sketches are representative subsets that can be used for comparisons, as long as the k-mer size and chosen scaled value remain consistent.
+Unlike traditional MinHash sketches, Scaled MinHash sketches enable similarity estimation with containment, which permits more accurate estimation of genomic distance when genomes or datasets differ in size <span class="citation" data-cites="s8orJ7KE 10ppWuOJ6">[<a href="#ref-s8orJ7KE" role="doc-biblioref">9</a>,<a href="#ref-10ppWuOJ6" role="doc-biblioref">10</a>]</span>.</p>
+<p>Sourmash supports sketching from either nucleotide or protein input sequence.
+All genome sequences were sketched with sourmash v4.0 using the <code>sourmash sketch dna</code> command, k-mer sizes of 21,31,51, a scaling factor of 1000.
+Sourmash also supports 6-frame translation of nucleotide sequence to amino acid sequence.
+To assess the utility of these translated sketches, genome sequences were also sketched with the <code>sourmash sketch translate</code> command at protein k-sizes (<em>kaa-mer sizes?</em>) of 7-12 and a scaling factor of 100.
+All proteome sequences were sketched with sourmash v4.0 using the <code>sourmash sketch protein</code> command at protein k-sizes (<em>kaa-mer sizes?</em>) of 7-12 and a scaling factor of 100.
+Where higher scaling factors were evaluated, these original sketches were downsampled using the sourmash <code>downsample</code> method prior to conducting sequence similarity comparisons.</p>
+<h3 id="sequence-identity-estimation-from-scaled-minhash">Sequence Identity Estimation from Scaled MinHash</h3>
+<p>Sourmash contains standard implementations of Jaccard [cite] and Containment set comparisons [cite].
+Briefly, the Jaccard Index between two sets is the intersection of the set over the union of the set. For k-mers, this is the number of k-mers shared between the two sketches over all k-mers present in either set.
+The Containment index is …</p>
+<ul>
+<li>jaccard –&gt; ANI/AAI</li>
+<li>containment –&gt; ANI/AAI</li>
+</ul>
+<h3 id="correlation-between-scaled-minhash-containment-and-sequence-identity">Correlation between Scaled MinHash Containment and Sequence Identity</h3>
+<p>FastANI v1.32 (<span class="citation" data-cites="12fAf7MKk">[<a href="#ref-12fAf7MKk" role="doc-biblioref">15</a>]</span>; run with default parameters) was used to obtain Average Nucleotide Identity between the anchor genome and each additional genome in its evolutionary path.
+FastANI is targeted at ANI values between 80%-100%, so only values in this range are considered “trusted” and used in **assessing the correlation between Scaled MinHash estimates and FastANI._(TBD)_**</p>
+<p>CompareM v0.1.2 (<span class="citation" data-cites="auqG5mhy">[<a href="#ref-auqG5mhy" role="doc-biblioref">24</a>]</span>; run with <code>--sensitive</code> parameter for DIAMOND mapping) was used to obtain Average Amino Acid Identity between the anchor proteome and each additional proteome in its evolutionary path.
+CompareM reports the mean and standard deviation of AAI, as well as the fraction of orthologous genes upon which this estimate is based.
+Briefly, CompareM calls genes for each genome or proteome using PRODIGAL <span class="citation" data-cites="4R96QRcV">[<a href="#ref-4R96QRcV" role="doc-biblioref">5</a>]</span> and conducts reciprocal best-hit mapping via DIAMOND <span class="citation" data-cites="lX665mdh">[<a href="#ref-lX665mdh" role="doc-biblioref">25</a>]</span>.
+By default, CompareM requires at least 30% percent sequence identity and 70% percent alignment length to identify orthologous genes.
+As DIAMOND alignment-based homology identification may correlate less well with BLAST-based homology under 60% sequence identity <span class="citation" data-cites="18uVBOfA0">[<a href="#ref-18uVBOfA0" role="doc-biblioref">26</a>]</span>, <strong>we also ran compareM with a percent sequence identity threshold of 60% to obtain a set of high-confidence orthologous genes for AAI estimation. We report correlation between Scaled MinHash AAI estimation and each of these compareM parameter sets in XX <em>(TBD)</em></strong>. <em>CompareM was also used to obtain AAI values directly from each genome, using PRODIGAL to translate sequences prior to gene calling. These results [were not significantly different from proteome-based AAI estimation??] (Supplemental XX).</em></p>
+<h3 id="experiments">Experiments</h3>
+<h4 id="gtdb-evolutionary-paths-dataset-1">GTDB “Evolutionary Paths” Dataset</h4>
+<p>The Genome Taxonomy Database (GTDB) provides a genome-based taxonomy for bacterial and archaeal genomes <span class="citation" data-cites="cN1LdTev">[<a href="#ref-cN1LdTev" role="doc-biblioref">27</a>]</span>.
+To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of “evolutionary paths” from the set of 31k representative GTDB genomes.
+For each genus with at least two species clusters, one representative genome was randomly selected as a path “anchor” genome.
+To build the path, one additional genome was selected from the representative genomes matching the anchor’s taxonomy at each higher taxonomic rank.
+Each path thus consisted of seven genomes: an anchor genome, a genome matching anchor taxonomy down to the genus level, one matching anchor taxonomy to the family level, one matching to the order level, and so on.
+This creates a gradient of similarity, where comparisons to the anchor genome range from genus-level to superkingdom-level.
+Path selection using the representative genomes in GTDB release 95 resulted in 2957 paths comprised of 6690 unique genomes (6543 Bacteria, 237 Archaea).
+These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
+While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances.</p>
+<h4 id="gtdb-evolutionary-paths-analysis">GTDB Evolutionary Paths Analysis</h4>
+<h4 id="taxonomic-classification-with-sourmash-gather">Taxonomic Classification with Sourmash Gather</h4>
 <h2 id="availability-of-data-and-materials">Availability of data and materials</h2>
 <h2 id="competing-interests">Competing Interests</h2>
 <p>The authors declare that they have no competing interests.</p>
@@ -282,7 +320,7 @@ The lower bound of the containment denominator will be the exact same as the num
 </tbody>
 </table>
 <h2 id="acknowledgements">Acknowledgements</h2>
-<p>Thank you to all the members and affiliates of the Lab for Data-Intensive Biology at UC Davis for providing valuable feedback on this manuscript. This manuscript was written using manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">23</a>]</span> and is available in a GitHub repository <span class="citation" data-cites="qASuQ8hV">[<a href="#ref-qASuQ8hV" role="doc-biblioref">24</a>]</span>.</p>
+<p>Thank you to all the members and affiliates of the Lab for Data-Intensive Biology at UC Davis for providing valuable feedback on this manuscript. This manuscript was written using manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">28</a>]</span> and is available in a GitHub repository <span class="citation" data-cites="qASuQ8hV">[<a href="#ref-qASuQ8hV" role="doc-biblioref">29</a>]</span>.</p>
 <h2 class="page_break_before" id="references">References</h2>
 <!-- Explicitly insert bibliography here -->
 <div id="refs" class="references hanging-indent" role="doc-bibliography">
@@ -399,32 +437,60 @@ Antonio Blanca, Robert S. Harris, David Koslicki, Paul Medvedev<br />
 <em>Cold Spring Harbor Laboratory</em> (2021-01-17) <a href="https://doi.org/fq3g">https://doi.org/fq3g</a> <br />
 DOI: <a href="https://doi.org/10.1101/2021.01.15.426881">10.1101/2021.01.15.426881</a></p>
 </div>
-<div id="ref-cN1LdTev">
-<p>20. <strong>A complete domain-to-species taxonomy for Bacteria and Archaea</strong> <br />
-Donovan H. Parks, Maria Chuvochina, Pierre-Alain Chaumeil, Christian Rinke, Aaron J. Mussig, Philip Hugenholtz<br />
-<em>Nature Biotechnology</em> (2020-04-27) <a href="https://doi.org/ggtbk2">https://doi.org/ggtbk2</a> <br />
-DOI: <a href="https://doi.org/10.1038/s41587-020-0501-8">10.1038/s41587-020-0501-8</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32341564">32341564</a></p>
-</div>
 <div id="ref-42mqIVmU">
-<p>21. <strong>A quick alternative method for resolving bacterial taxonomy using short identical DNA sequences in genomes or metagenomes</strong> <br />
+<p>20. <strong>A quick alternative method for resolving bacterial taxonomy using short identical DNA sequences in genomes or metagenomes</strong> <br />
 Jesse Shapiro<br />
 <em>Peer Community In Genomics</em> (2020-09-24) <a href="https://doi.org/ghvgd3">https://doi.org/ghvgd3</a> <br />
 DOI: <a href="https://doi.org/10.24072/pci.genomics.100001">10.24072/pci.genomics.100001</a></p>
 </div>
 <div id="ref-2YyPxapj">
-<p>22. <strong>Robust taxonomic classification of uncharted microbial sequences and bins with CAT and BAT</strong> <br />
+<p>21. <strong>Robust taxonomic classification of uncharted microbial sequences and bins with CAT and BAT</strong> <br />
 F. A. Bastiaan von Meijenfeldt, Ksenia Arkhipova, Diego D. Cambuy, Felipe H. Coutinho, Bas E. Dutilh<br />
 <em>Genome Biology</em> (2019-10-22) <a href="https://doi.org/ggfm6r">https://doi.org/ggfm6r</a> <br />
 DOI: <a href="https://doi.org/10.1186/s13059-019-1817-x">10.1186/s13059-019-1817-x</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31640809">31640809</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6805573">PMC6805573</a></p>
 </div>
+<div id="ref-ART4gJKs">
+<p>22. <strong>Large-scale sequence comparisons with sourmash</strong> <br />
+N. Tessa Pierce, Luiz Irber, Taylor Reiter, Phillip Brooks, C. Titus Brown<br />
+<em>F1000Research</em> (2019-07-04) <a href="https://doi.org/gf9v84">https://doi.org/gf9v84</a> <br />
+DOI: <a href="https://doi.org/10.12688/f1000research.19675.1">10.12688/f1000research.19675.1</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31508216">31508216</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6720031">PMC6720031</a></p>
+</div>
+<div id="ref-ExvjTLL3">
+<p>23. <strong>sourmash: a library for MinHash sketching of DNA</strong> <br />
+C. Titus Brown, Luiz Irber<br />
+<em>The Journal of Open Source Software</em> (2016-09-14) <a href="https://doi.org/ghdrk5">https://doi.org/ghdrk5</a> <br />
+DOI: <a href="https://doi.org/10.21105/joss.00027">10.21105/joss.00027</a></p>
+</div>
+<div id="ref-auqG5mhy">
+<p>24. <strong>dparks1134/CompareM</strong> <br />
+Donovan Parks<br />
+(2021-03-23) <a href="https://github.com/dparks1134/CompareM">https://github.com/dparks1134/CompareM</a></p>
+</div>
+<div id="ref-lX665mdh">
+<p>25. <strong>Prodigal: prokaryotic gene recognition and translation initiation site identification</strong> <br />
+Doug Hyatt, Gwo-Liang Chen, Philip F LoCascio, Miriam L Land, Frank W Larimer, Loren J Hauser<br />
+<em>BMC Bioinformatics</em> (2010-03-08) <a href="https://doi.org/cktxnm">https://doi.org/cktxnm</a> <br />
+DOI: <a href="https://doi.org/10.1186/1471-2105-11-119">10.1186/1471-2105-11-119</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/20211023">20211023</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2848648">PMC2848648</a></p>
+</div>
+<div id="ref-18uVBOfA0">
+<p>26. <strong>AAI: BLAST vs Diamond</strong> <br />
+LM Rodriguez-R<br />
+<a href="https://rodriguez-r.com/blog/aai-blast-vs-diamond/">https://rodriguez-r.com/blog/aai-blast-vs-diamond/</a></p>
+</div>
+<div id="ref-cN1LdTev">
+<p>27. <strong>A complete domain-to-species taxonomy for Bacteria and Archaea</strong> <br />
+Donovan H. Parks, Maria Chuvochina, Pierre-Alain Chaumeil, Christian Rinke, Aaron J. Mussig, Philip Hugenholtz<br />
+<em>Nature Biotechnology</em> (2020-04-27) <a href="https://doi.org/ggtbk2">https://doi.org/ggtbk2</a> <br />
+DOI: <a href="https://doi.org/10.1038/s41587-020-0501-8">10.1038/s41587-020-0501-8</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32341564">32341564</a></p>
+</div>
 <div id="ref-YuJbg3zO">
-<p>23. <strong>Open collaborative writing with Manubot</strong> <br />
+<p>28. <strong>Open collaborative writing with Manubot</strong> <br />
 Daniel S. Himmelstein, Vincent Rubinetti, David R. Slochower, Dongbo Hu, Venkat S. Malladi, Casey S. Greene, Anthony Gitter<br />
 <em>PLOS Computational Biology</em> (2019-06-24) <a href="https://doi.org/c7np">https://doi.org/c7np</a> <br />
 DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi.1007128</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31233491">31233491</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6611653">PMC6611653</a></p>
 </div>
 <div id="ref-qASuQ8hV">
-<p>24. <a href="https://github.com/bluegenes/2021-ani-paper">https://github.com/bluegenes/2021-ani-paper</a></p>
+<p>29. <a href="https://github.com/bluegenes/2021-ani-paper">https://github.com/bluegenes/2021-ani-paper</a></p>
 </div>
 </div>
 <!-- default theme -->

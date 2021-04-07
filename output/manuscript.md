@@ -158,19 +158,29 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 
 
 ## Results
-
+_somewhat mixed results and methods for now_
 
 ### GTDB "Evolutionary Paths" Dataset
+_To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes._
 
-The Genome Taxonomy Database (GTDB) provides a genome-based taxonomy for bacterial and archaeal genomes [@doi:10.1038/s41587-020-0501-8].
-To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
-For each genus with at least two species clusters, one representative genome was randomly selected as a path "anchor" genome.
-To build the path, one additional genome was selected from the representative genomes matching the anchor's taxonomy at each higher taxonomic rank.
-Each path thus consisted of seven genomes: an anchor genome, a genome matching anchor taxonomy down to the genus level, one matching anchor taxonomy to the family level, one matching to the order level, and so on.
-This creates a gradient of similarity, where comparisons to the anchor genome range from genus-level to superkingdom-level.
-Path selection using the representative genomes in GTDB release 95 resulted in 2957 paths comprised of 6690 unique genomes.
-These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
-While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
+
+### Scaled Minhash jaccard enables accurate distance estimation
+_(Correlation between Scaled MinHash Jaccard/Containment and ANI, AAI)_
+
+Each evolutionary path offers six genome similarity comparisons at a range of evolutionary distances. 
+
+ genome comparison, we estimated Average Nucleotide Identity (ANI) using fastANI [@doi:10.1038/s41467-018-07641-9] and Average Amino Acid Identity (AAI) using compareM [@url: https://github.com/dparks1134/CompareM]. We then estimated Scaled MinHash Jaccard and Containment for e
+
+
+
+
+
+### Scaled MinHash Containment facilitates taxonomic classification
+
+
+### Scaled MinHash Containment is robust to genome completeness
+
+
 
 
 ### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
@@ -312,6 +322,74 @@ Alignment-based metrics are looking at the specific sequence variation of aligne
 
 
 ## Methods
+
+
+### Scaled MinHash Sketching with Sourmash
+
+As implemented in sourmash [@https://dib-lab.github.io/2020-paper-sourmash-gather; @doi:10.12688/f1000research.19675.1; @doi:10.21105/joss.00027], Scaled MinHash is a MinHash variant that uses a scaling factor to subsample the unique k-mers in the dataset to the chosen proportion (1/`scaled`).
+As k-mers are randomized prior to systematic subsampling, Scaled MinHash sketches are representative subsets that can be used for comparisons, as long as the k-mer size and chosen scaled value remain consistent. 
+Unlike traditional MinHash sketches, Scaled MinHash sketches enable similarity estimation with containment, which permits more accurate estimation of genomic distance when genomes or datasets differ in size [@doi:10.1016/j.amc.2019.02.018;@doi:10.1186/s13059-019-1875-0]. 
+
+Sourmash supports sketching from either nucleotide or protein input sequence.
+All genome sequences were sketched with sourmash v4.0 using the `sourmash sketch dna` command, k-mer sizes of 21,31,51, a scaling factor of 1000. 
+Sourmash also supports 6-frame translation of nucleotide sequence to amino acid sequence.
+To assess the utility of these translated sketches, genome sequences were also sketched with the `sourmash sketch translate` command at protein k-sizes (_kaa-mer sizes?_) of 7-12 and a scaling factor of 100. 
+All proteome sequences were sketched with sourmash v4.0 using the `sourmash sketch protein` command at protein k-sizes (_kaa-mer sizes?_) of 7-12 and a scaling factor of 100.
+Where higher scaling factors were evaluated, these original sketches were downsampled using the sourmash `downsample` method prior to conducting sequence similarity comparisons.
+
+
+### Sequence Identity Estimation from Scaled MinHash
+
+
+Sourmash contains standard implementations of Jaccard [cite] and Containment set comparisons [cite].
+Briefly, the Jaccard Index between two sets is the intersection of the set over the union of the set. For k-mers, this is the number of k-mers shared between the two sketches over all k-mers present in either set.
+The Containment index is ...
+
+
+- jaccard --> ANI/AAI
+- containment --> ANI/AAI
+
+### Correlation between Scaled MinHash Containment and Sequence Identity
+
+FastANI v1.32 ([@doi:10.1038/s41467-018-07641-9]; run with default parameters)  was used to obtain Average Nucleotide Identity between the anchor genome and each additional genome in its evolutionary path.
+FastANI is targeted at ANI values between 80%-100%, so only values in this range are considered "trusted" and used in **assessing the correlation between Scaled MinHash estimates and FastANI._(TBD)_**
+
+CompareM v0.1.2 ([@url:https://github.com/dparks1134/CompareM]; run with `--sensitive` parameter for DIAMOND mapping) was used to obtain Average Amino Acid Identity between the anchor proteome and each additional proteome in its evolutionary path.
+CompareM reports the mean and standard deviation of AAI, as well as the fraction of orthologous genes upon which this estimate is based.
+Briefly, CompareM calls genes for each genome or proteome using PRODIGAL [@doi:10.1038/nmeth.3176] and conducts reciprocal best-hit mapping via DIAMOND [@doi:10.1186/1471-2105-11-119].
+By default, CompareM requires at least 30% percent sequence identity and 70% percent alignment length to identify orthologous genes.
+As DIAMOND alignment-based homology identification may correlate less well with BLAST-based homology under 60% sequence identity [@url:https://rodriguez-r.com/blog/aai-blast-vs-diamond/], **we also ran compareM with a percent sequence identity threshold of 60% to obtain a set of high-confidence orthologous genes for AAI estimation. We report correlation between Scaled MinHash AAI estimation and each of these compareM parameter sets in XX _(TBD)_**. _CompareM was also used to obtain AAI values directly from each genome, using PRODIGAL to translate sequences prior to gene calling. These results [were not significantly different from proteome-based AAI estimation??] (Supplemental XX)._
+
+### Experiments
+
+#### GTDB "Evolutionary Paths" Dataset
+
+The Genome Taxonomy Database (GTDB) provides a genome-based taxonomy for bacterial and archaeal genomes [@doi:10.1038/s41587-020-0501-8].
+To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
+For each genus with at least two species clusters, one representative genome was randomly selected as a path "anchor" genome.
+To build the path, one additional genome was selected from the representative genomes matching the anchor's taxonomy at each higher taxonomic rank.
+Each path thus consisted of seven genomes: an anchor genome, a genome matching anchor taxonomy down to the genus level, one matching anchor taxonomy to the family level, one matching to the order level, and so on.
+This creates a gradient of similarity, where comparisons to the anchor genome range from genus-level to superkingdom-level.
+Path selection using the representative genomes in GTDB release 95 resulted in 2957 paths comprised of 6690 unique genomes (6543 Bacteria, 237 Archaea).
+These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
+While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
+
+#### GTDB Evolutionary Paths Analysis
+
+
+#### Taxonomic Classification with Sourmash Gather
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Availability of data and materials
