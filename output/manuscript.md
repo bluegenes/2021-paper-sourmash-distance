@@ -5,7 +5,7 @@ keywords:
 - OGRI
 - ANI
 lang: en-US
-date-meta: '2021-04-07'
+date-meta: '2021-04-08'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -19,8 +19,8 @@ header-includes: |-
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-04-07" />
-  <meta name="citation_publication_date" content="2021-04-07" />
+  <meta name="dc.date" content="2021-04-08" />
+  <meta name="citation_publication_date" content="2021-04-08" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -57,7 +57,7 @@ manubot-clear-requests-cache: false
 <small><em>
 This manuscript
 was automatically generated
-on April 7, 2021.
+on April 8, 2021.
 </em></small>
 
 ## Authors
@@ -170,7 +170,29 @@ GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpa
 
 ### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
 
-![**Scaled MinHash AAI vs CompareM**
+
+
+
+
+### Benchmarking Taxonomic Classification
+
+First, we benchmarked protein-based gather classification using the high quality, highly complete reference genomes within the GTDB representative genome set.
+For each genus, we randomly selected one reference genome for inclusion in the benchmarking reference database (n=9428).
+For each genus with at least two species clusters, we randomly selected a second species within that genus for the test set of genomes (n=3911).
+Thus, each test genome shares genus-level taxonomy with one (and only one) genome in the reference database.
+Since we know that no test genome shares species-level taxonomy with the reference database, we used the lowest/least common ancestor approach described above to report taxonomic classifications at the genus level.
+To assess the impact of 6-frame translation of nucleotide sequence on classification accuracy, we compared classification accuracy between published proteome queries and (6-frame) translated genome queries.
+Using the same reference database, we selected an environmental dataset [@doi:] to assess the impact of genome completeness on taxonomic classification.
+We compared gather-LCA classification to GTDB-Tk, a tool 
+
+
+### Protein-level Taxonomic Classification
+We also generated nucleotide and protein Scaled MinHash reference databases for all GTDB representative genomes (release 95, n=31,910).
+
+
+
+
+![**K-mer Based Sequence Identity by Lowest Common Taxon**
 GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpathsANIAAI}
 
 **(DNA vs Protein)**
@@ -300,9 +322,17 @@ Alignment-based metrics are looking at the specific sequence variation of aligne
 
 ## Discussion
 
-- Limitations
-- Future Directions
-- Summary
+K-mer based estimation of sequence identity has been limited to nucleotide sequences of similar size with high sequence identity (>80%),outside of which MinHash Jaccard is less well correlated with sequence identity [@doi:10.1186/s13059-016-0997-x; @doi:10.1038/s41467-018-07641-9].
+
+By leveraging the Containment Index of Scaled MinHash sketches with both nucleotide and protein k-mers, we can extend accurate k-mer sequence identity to sequences of different sizes and to >50% Amino Acid Identity.
+
+
+Cricuolo [@doi:10.12688/f1000research.26930.1] (suggests w/ appropriate correction, nucl MinHash Jaccard can be used up to >65% ANI??)
+
+Here, we utilize Scaled MinHash sketches with Containment to overcome size differences between sequences being compared. 
+
+To accurately estimate sequence identity from sequence files of different sizes(genomes, metagenomes, etc), we employ Scaled Minhash sketches, which enables estimation of the Containment Index. 
+
 
 
 ## Conclusions
@@ -310,8 +340,6 @@ Alignment-based metrics are looking at the specific sequence variation of aligne
 Containment-based pairwise distance estimation via Scaled Minhash enables accurate assembly-free and alignment-free phylogenomic reconstruction and taxonomic classification across a wide range of evolutionary distances.
 
 ## Methods
-
-_general methods_
 
 ### Scaled MinHash Sketching with Sourmash
 
@@ -335,13 +363,12 @@ Sourmash contains standard implementations of Jaccard Index [@doi:10.1186/s13059
 **Estimating Sequence Similarity from Jaccard**
 For a comparison between two genomes (genomeA, genomeB), the Jaccard Index represents the k-mers shared between the two genomes (sketch intersection) divided by the k-mers present in both sketches (sketch union).
 Thus the Jaccard Index represents the percent of shared k-mers relative to all k-mers across both genomes (intersection/genomeA+genomeB).
-MinHash Sketch Jaccard has been shown to correlate well with ANI at high sequence identities (>=90% sequence identity) [@doi:10.1186/s13059-016-0997-x].
-
+MinHash Sketch Jaccard has been shown to correlate well with ANI at high sequence identities (>=90% sequence identity) [@doi:10.1186/s13059-016-0997-x]; (>=80% sequence identity [@doi:10.1038/s41467-018-07641-9].
 
 **Estimating Sequence Similarity from Containment**
 As the Jaccard Index utilizes the union of all k-mers in a dataset, it is greatly affected by differences in dataset size [@doi:10.1093/bib/bbz083].
 The Containment Index instead represents the percent of a genome found in the comparison genome.
-Containment is directional: while the number of shared k-mers is fixed for a pairwise comparison, the Containment of each dataset will depend on the unique k-mers found in that particular dataset. Containment for genomeA will be (intersecion/genomeA), while Containment for genomeB will be (intersection/genomeB).
+Containment is directional: while the number of shared k-mers is fixed for a pairwise comparison, the Containment of each dataset will depend on the unique k-mers found in that particular dataset. Containment for genomeA will be (intersection/genomeA), while Containment for genomeB will be (intersection/genomeB).
 
 Alignment-based ANI represents the sequence similarity of the alignable fraction of two genomes. In this way, ANI only compares the shared sequences, and discounts/ignores all other sequence present in either genome.
 Bidirectional containment comparisons use the same numerator (shared k-mers), but may contain different numbers of non-shared k-mers in the denominator.
@@ -354,13 +381,14 @@ By definition, metagenomes contain k-mers from many organisms.
 We can take advantage of directional Containment by calculating the Containment Index of Reference genomes that share many k-mers with the Metagenome.
 We have already shown the utility of Containment for metagenome classification [@https://dib-lab.github.io/2020-paper-sourmash-gather], but now we can report estimated average sequence identity between the matching sequence regions and the reference genome.
 
-**Sequence Identity via Mash Distance**
+**Estimating Sequence Identity from Scaled MinHash**
 
-First, we use the published Mash Distance equations with Scaled MinHash sketches.
+**_TBD_**
 
+Blanca et al, 2021 [@doi:10.1101/2021.01.15.426881] presented a method to estimate the mutation rate between MinHash sketches while accounting for the non-independence of mutated k-mers. Using [@https://github.com/KoslickiLab/mutation-rate-ci-calculator], we estimate Sequence Identity from Scaled MinHash Containment.
 
-**Sequence Identity via Mutation Rate Intervals**
-	
+Estimating sequence similarity from Scaled MinHash requires a good estimate of the number of unique k-mers in the sketched sequencing dataset [@https:https://github.com/dib-lab/sourmash/pull/1270]...
+
 
 
 
@@ -376,6 +404,7 @@ Path selection using the representative genomes in GTDB release 95 resulted in 2
 These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea), covering roughly a quarter of the 129 phyla (111 Bacteria, 18 Archaea) in GTDB release 95.
 While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
 
+
 ### Scaled MinHash Sequence Identity Correlates with Standard Methods
 
 FastANI v1.32 ([@doi:10.1038/s41467-018-07641-9]; run with default parameters)  was used to obtain Average Nucleotide Identity between the anchor genome and each additional genome in its evolutionary path.
@@ -390,15 +419,21 @@ As DIAMOND alignment-based homology identification may correlate less well with 
 
 ### Taxonomic Classification with Sourmash Gather
 
-- brief description of gather
-- description of gather-based LCA aggregation to taxonomic rank
+To take advantage of the increased evolutionary distance comparisons offered by protein k-mers, we apply compositional analysis with sourmash gather [@https://dib-lab.github.io/2020-paper-sourmash-gather] to protein sequences (amino acid input and 6-frame translation from nucleotides).
+Sourmash gather is conducted in two parts: 
+First (preselection), gather searches the query against all reference genomes, building all genomes with matches into a smaller, in-memory database for use in step 2.
+Second (decomposition), gather does iterative best-containment decomposition, where query k-mers are iteratively assigned to the reference genome with best containment match.
+In this way, gather reports the minimal list of reference genomes that contain all of the k-mers that matched any reference in the database.
+
+For reference matches with high sequence identity (ANI) to the query, we classify the query sequence as a member of the reference taxonomic group, as in [@https://dib-lab.github.io/2020-paper-sourmash-gather].
+**However, when ANI between the query and the top reference match exceeds the taxonomic rank threshold (e.g. species default 95%), we use a least/lowest common ancestor (LCA) approach to report likely taxonomy at a higher taxonomic rank _(TBD)_**.
+Briefly, as gather reports non-overlapping genome matches, we can sum the k-mer matches for all genomes with shared taxonomies at the next higher taxonomic rank to report the best query containment at that rank.
+As this gather-LCA approach first uniquely assigns k-mers to their best reference genome, it bypasses the impact of increasing database size on taxonomic assignment observed for other LCA-based k-mer classification approaches [@doi:10.1186/s13059-018-1554-6].
 
 
-### Workflows and Computing
+### Workflows and Computing Resources
 
-Reproducible workflows associated with this paper are available at XX (gh link + doi for release), with datasets available at OSF (XX). All workflows were executed using snakemake >= 5.26 [@doi:10.12688/f1000research.29032.1)] on the FARM cluster at UC Davis, using practices outlined in [@doi:10.1093/gigascience/giaa140].		
-
-
+Reproducible workflows associated with this paper are available at XX (gh link + doi for release), with datasets available at OSF (XX). All workflows were executed using snakemake >= 5.26 [@doi:10.12688/f1000research.29032.1)] on the FARM cluster at UC Davis, using practices outlined in [@doi:10.1093/gigascience/giaa140].
 
 
 
@@ -407,6 +442,18 @@ Reproducible workflows associated with this paper are available at XX (gh link +
 
 
 
+
+
+
+
+
+## Leftover Text
+
+
+Here, we apply k-mer based sequence identity estimation to generate taxonomic classification from the compositional results.
+
+
+apply k-mer based sequence identity estimation with known taxonomic thresholds to report the most likely taxonomy for a given query genome.
 
 
 
