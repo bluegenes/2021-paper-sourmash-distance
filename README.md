@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/bluegenes/2021-ani-paper/tree/gh-pages) branch hosts the contents of this directory at <https://bluegenes.github.io/2021-ani-paper/>.
-The permalink for this webpage version is <https://bluegenes.github.io/2021-ani-paper/v/541052330725a239495eb610c80415cce7e1a8c1/>.
+The permalink for this webpage version is <https://bluegenes.github.io/2021-ani-paper/v/5e345f8a68c4f8c6f9258f18a257015f1541b88a/>.
 To redirect to the permalink for the latest manuscript version at anytime, use the link <https://bluegenes.github.io/2021-ani-paper/v/freeze/>.
 
 ## Files
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`541052330725a239495eb610c80415cce7e1a8c1`](https://github.com/bluegenes/2021-ani-paper/commit/541052330725a239495eb610c80415cce7e1a8c1).
+[`5e345f8a68c4f8c6f9258f18a257015f1541b88a`](https://github.com/bluegenes/2021-ani-paper/commit/5e345f8a68c4f8c6f9258f18a257015f1541b88a).
