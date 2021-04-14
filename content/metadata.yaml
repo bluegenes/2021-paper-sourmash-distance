@@ -1,9 +1,12 @@
 ---
-title: "Scaled MinHash Containment enables alignment-free distance estimation across the tree of life"
+title: "Alignment-free distance estimation across the tree of life"
 keywords:
   - metagenomics
-  - OGRI
   - ANI
+  - AAI
+  - Alignment-free
+  - MinHash
+  - Containment
 lang: en-US
 authors:
   -
