@@ -19,7 +19,7 @@ cov
 Cricuolo
 CTB
 ctitusbrown
-Dataset
+dataset
 datasets
 dayhoff
 downsampled
@@ -33,7 +33,7 @@ genomeA
 genomeB
 genomic
 gh
-GTDB
+gtdb
 heatmap
 iHMP
 Irber

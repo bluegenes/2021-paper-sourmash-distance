@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/18931fec213d86da7851ea0d7dbcaf83ba8812d4/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/18931fec213d86da7851ea0d7dbcaf83ba8812d4/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/18931fec213d86da7851ea0d7dbcaf83ba8812d4/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/b994d7f6227181bdeccbebb8128f82bdd3bcf94d/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/b994d7f6227181bdeccbebb8128f82bdd3bcf94d/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/b994d7f6227181bdeccbebb8128f82bdd3bcf94d/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-ani-paper/v/18931fec213d86da7851ea0d7dbcaf83ba8812d4/))
+([permalink](https://bluegenes.github.io/2021-ani-paper/v/b994d7f6227181bdeccbebb8128f82bdd3bcf94d/))
 was automatically generated
-from [bluegenes/2021-ani-paper@18931fe](https://github.com/bluegenes/2021-ani-paper/tree/18931fec213d86da7851ea0d7dbcaf83ba8812d4)
+from [bluegenes/2021-ani-paper@b994d7f](https://github.com/bluegenes/2021-ani-paper/tree/b994d7f6227181bdeccbebb8128f82bdd3bcf94d)
 on April 14, 2021.
 </em></small>
 
