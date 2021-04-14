@@ -5,7 +5,7 @@ keywords:
 - OGRI
 - ANI
 lang: en-US
-date-meta: '2021-04-08'
+date-meta: '2021-04-14'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -19,8 +19,8 @@ header-includes: |-
   <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-04-08" />
-  <meta name="citation_publication_date" content="2021-04-08" />
+  <meta name="dc.date" content="2021-04-14" />
+  <meta name="citation_publication_date" content="2021-04-14" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -41,9 +41,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/541052330725a239495eb610c80415cce7e1a8c1/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/541052330725a239495eb610c80415cce7e1a8c1/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/541052330725a239495eb610c80415cce7e1a8c1/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/5e345f8a68c4f8c6f9258f18a257015f1541b88a/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/5e345f8a68c4f8c6f9258f18a257015f1541b88a/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/5e345f8a68c4f8c6f9258f18a257015f1541b88a/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,10 +65,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-ani-paper/v/541052330725a239495eb610c80415cce7e1a8c1/))
+([permalink](https://bluegenes.github.io/2021-ani-paper/v/5e345f8a68c4f8c6f9258f18a257015f1541b88a/))
 was automatically generated
-from [bluegenes/2021-ani-paper@5410523](https://github.com/bluegenes/2021-ani-paper/tree/541052330725a239495eb610c80415cce7e1a8c1)
-on April 8, 2021.
+from [bluegenes/2021-ani-paper@5e345f8](https://github.com/bluegenes/2021-ani-paper/tree/5e345f8a68c4f8c6f9258f18a257015f1541b88a)
+on April 14, 2021.
 </em></small>
 
 ## Authors
@@ -161,7 +161,7 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 _somewhat mixed results and methods for now_
 
 
-### Scaled Minhash jaccard enables accurate distance estimation
+### Accurate distance estimation with Maximum Containment
 _(Correlation between Scaled MinHash Jaccard/Containment and ANI, AAI)_
 
 To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
@@ -171,6 +171,7 @@ For each genome comparison, we estimated Average Nucleotide Identity (ANI) using
 ![**Scaled MinHash ANI vs FastANI**
 GTDB Evolpaths Dataset](images/gtdb95-evolpaths.ANI-concordance.png){#fig:evolpathsANIvsfastANI}
 
+
 ![**Scaled MinHash AAI vs CompareM**
 GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpathsAAIvsCompareM}
 
@@ -179,13 +180,17 @@ GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpa
 - Scaled MinHash Containment is robust to genome completeness
 
 
-### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
+### Similarity detection and clustering at increased evolutionary distances
+
+<compare heatmap w/ max containment for subset of gtdb data?>
 
 
+### Robust taxonomic classification
+
+Ref databases are incomplete.
 
 
-
-### Benchmarking Taxonomic Classification
+#### Benchmarking Taxonomic Classification
 
 First, we benchmarked protein-based gather classification using the high quality, highly complete reference genomes within the GTDB representative genome set.
 For each genus, we randomly selected one reference genome for inclusion in the benchmarking reference database (n=9428).
@@ -194,14 +199,16 @@ Thus, each test genome shares genus-level taxonomy with one (and only one) genom
 Since we know that no test genome shares species-level taxonomy with the reference database, we used the lowest/least common ancestor approach described above to report taxonomic classifications at the genus level.
 To assess the impact of 6-frame translation of nucleotide sequence on classification accuracy, we compared classification accuracy between published proteome queries and (6-frame) translated genome queries.
 Using the same reference database, we selected an environmental dataset [@doi:] to assess the impact of genome completeness on taxonomic classification.
-We compared gather-LCA classification to GTDB-Tk, a tool 
 
+We compared gather-LCA classification to `GTDB-Tk`, a tool ...
 
-### Protein-level Taxonomic Classification
 We also generated nucleotide and protein Scaled MinHash reference databases for all GTDB representative genomes (release 95, n=31,910).
 
 
+#### Classification is robust to incompleteness of query genome and reference database
 
+
+#### Classification is robust to query genome contamination
 
 ![**K-mer Based Sequence Identity by Lowest Common Taxon**
 GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpathsANIAAI}
@@ -210,7 +217,7 @@ GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpat
 - _(just containment, no ANI/AAI)_
 - _include dayhoff or just protein?_
 
-K-mer analysis methods enable similarity detection as low as a single shared k-mer between divergent genomes. As a result, exact matching long nucleotide k-mers can be used for taxonomic classification between closely related genomes, including at the strain, species, and genus level (k-mer lengths 51, 31, and 21, respectively). At larger evolutionary distances, accumulated nucleotide divergence limits the utility of exact nucleotide k-mer matching. 
+K-mer analysis methods enable similarity detection as low as a single shared k-mer between divergent genocmes. As a result, exact matching long nucleotide k-mers can be used for taxonomic classification between closely related genomes, including at the strain, species, and genus level (k-mer lengths 51, 31, and 21, respectively). At larger evolutionary distances, accumulated nucleotide divergence limits the utility of exact nucleotide k-mer matching. 
 
 As protein sequences are more conserved than their coding nucleotide sequences, exact matching of protein k-mers can detect sequence similarity in spite of synonymous nucleotide substitutions that may have accumulated across the two sequences.
 
@@ -343,6 +350,24 @@ Cricuolo [@doi:10.12688/f1000research.26930.1] (suggests w/ appropriate correcti
 Here, we utilize Scaled MinHash sketches with Containment to overcome size differences between sequences being compared. 
 
 To accurately estimate sequence identity from sequence files of different sizes(genomes, metagenomes, etc), we employ Scaled Minhash sketches, which enables estimation of the Containment Index. 
+
+
+A number of methods have used discriminatory k-mer analysis for taxonomic classification. However, most rely upon first developing a reference of discriminatory k-mers, e.g. k-mers unique to / diagnostic of a taxonomic group.
+Instead, sourmash gather leverages the Containment Index to find the reference match that shares the largest number of k-mers with the query sequence.
+
+At k=21 (dna) and k=7 (protein), many k	-mers are shared across taxonomic groups.
+Unlike many k-mer based classifiers, we do not need to explicitly characterize the discriminatory k-mers for each taxonomic group.
+The Containment Index uses all matched k-mers between the query and each reference, finding the % of each reference genome present in the query.
+Gather then selects the most covered (highest percent contained) reference genome, thus utilizing the combination of shared and discriminatory k-mers to find the most parsimonious match.
+After finding the best match, all matched k-mers are removed for the query in order to repeat the analysis to find the next most parsimonious genome match.
+
+
+
+While this method is still dependent on a good set of reference genomes, updating the set of references with new data does not require recalculation of discriminatory k=mer sets...
+
+
+
+
 
 
 

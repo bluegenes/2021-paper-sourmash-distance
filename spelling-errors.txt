@@ -6,7 +6,7 @@ ANI
 Archaea
 archaeal
 benchmarked
-Benchmarking
+benchmarking
 bluegenes
 clade
 CompareM
@@ -16,7 +16,7 @@ contig
 contigs
 cov
 Cricuolo
-CTB
+ctb
 ctitusbrown
 dataset
 datasets
@@ -24,15 +24,17 @@ dayhoff
 downsampled
 Downsampling
 euk
-evolpaths
+Evolpaths
 FastANI
 Franzosa
 GBMF
+genocmes
 genomeA
 genomeB
 genomic
 gh
 GTDB
+heatmap
 iHMP
 Irber
 iteratively
@@ -44,7 +46,7 @@ ksizes
 LCA
 mer
 mers
-metagenome
+Metagenome
 metagenomes
 metagenomic
 metatranscriptomic
@@ -63,7 +65,7 @@ plasmids
 polymorphims
 preselection
 proteome
-Pseudomonas
+pseudomonas
 rankinfo
 RO
 rRNA
