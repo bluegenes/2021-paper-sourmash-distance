@@ -1,5 +1,6 @@
 AAI
 Acknowledgements
+Add’l
 alignable
 amplicon
 ANI
@@ -16,9 +17,9 @@ contig
 contigs
 cov
 Cricuolo
-ctb
+CTB
 ctitusbrown
-dataset
+Dataset
 datasets
 dayhoff
 downsampled
@@ -28,7 +29,6 @@ Evolpaths
 FastANI
 Franzosa
 GBMF
-genocmes
 genomeA
 genomeB
 genomic
@@ -65,7 +65,7 @@ plasmids
 polymorphims
 preselection
 proteome
-pseudomonas
+Pseudomonas
 rankinfo
 RO
 rRNA
@@ -77,7 +77,7 @@ subsample
 subsampling
 subsequences
 superkingdom
-tbd
+TBD
 thumper
 Tk
 UC
