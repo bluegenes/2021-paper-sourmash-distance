@@ -1,11 +1,14 @@
 ---
-title: Scaled MinHash Containment enables alignment-free distance estimation across the tree of life
+title: Alignment-free distance estimation across the tree of life
 keywords:
 - metagenomics
-- OGRI
 - ANI
+- AAI
+- Alignment-free
+- MinHash
+- Containment
 lang: en-US
-date-meta: '2021-04-08'
+date-meta: '2021-04-14'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -15,12 +18,12 @@ header-includes: |-
   Suggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html
   -->
   <meta name="dc.format" content="text/html" />
-  <meta name="dc.title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="citation_title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta property="og:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta property="twitter:title" content="Scaled MinHash Containment enables alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-04-08" />
-  <meta name="citation_publication_date" content="2021-04-08" />
+  <meta name="dc.title" content="Alignment-free distance estimation across the tree of life" />
+  <meta name="citation_title" content="Alignment-free distance estimation across the tree of life" />
+  <meta property="og:title" content="Alignment-free distance estimation across the tree of life" />
+  <meta property="twitter:title" content="Alignment-free distance estimation across the tree of life" />
+  <meta name="dc.date" content="2021-04-14" />
+  <meta name="citation_publication_date" content="2021-04-14" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -57,7 +60,7 @@ manubot-clear-requests-cache: false
 <small><em>
 This manuscript
 was automatically generated
-on April 8, 2021.
+on April 14, 2021.
 </em></small>
 
 ## Authors
@@ -147,11 +150,19 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 
 
 ## Results
-_somewhat mixed results and methods for now_
 
+### Accurate distance estimation from Maximum Containment
+_(Correlation between Scaled MinHash Containment and ANI)_
 
-### Scaled Minhash jaccard enables accurate distance estimation
-_(Correlation between Scaled MinHash Jaccard/Containment and ANI, AAI)_
+Containment searches enable similiarity estimation, especially between genomes of different lengths.
+Max containment normalizes the shared content by the smaller of the two genomes
+
+![**Max Containment to ANI and AAI.** 
+Containment calculation is guaranteed to be more similar to traditional calculation of Average Nucleotide Identity and Average Amino Acid Identity, which compared only the sections of genome that align. The shared k-mer content (containment numerator) can be thought of as the alignable sections of the genomes. 
+The denominator of the Jaccard index is the alignable sections + the unalignable sections. 
+The lower bound of the containment denominator will be the exact same as the numerator at 100% containment, where all k-mers are found within the comparison dataset. The upper bound will be the same as the Jaccard denominator, where all k-mers of the comparison dataset are found within the query dataset, and it is the query that contains any additional nonshared k-mers/unalignable sequence.
+](images/containment-ANI-AAI.png){#fig:containmentANI}
+
 
 To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
 Each evolutionary path offers six genome similarity comparisons at a range of evolutionary distances. 
@@ -160,40 +171,14 @@ For each genome comparison, we estimated Average Nucleotide Identity (ANI) using
 ![**Scaled MinHash ANI vs FastANI**
 GTDB Evolpaths Dataset](images/gtdb95-evolpaths.ANI-concordance.png){#fig:evolpathsANIvsfastANI}
 
+
+### Similarity detection and clustering at increased evolutionary distances
+
+Protein k-mers! <compare heatmap w/ max containment for subset of gtdb data?>
+
 ![**Scaled MinHash AAI vs CompareM**
 GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpathsAAIvsCompareM}
 
-
-- Scaled MinHash Containment facilitates taxonomic classification
-- Scaled MinHash Containment is robust to genome completeness
-
-
-### k-mer containment searches enable similarity detection at increased evolutionary distances (nucl AND protein)
-
-
-
-
-
-### Benchmarking Taxonomic Classification
-
-First, we benchmarked protein-based gather classification using the high quality, highly complete reference genomes within the GTDB representative genome set.
-For each genus, we randomly selected one reference genome for inclusion in the benchmarking reference database (n=9428).
-For each genus with at least two species clusters, we randomly selected a second species within that genus for the test set of genomes (n=3911).
-Thus, each test genome shares genus-level taxonomy with one (and only one) genome in the reference database.
-Since we know that no test genome shares species-level taxonomy with the reference database, we used the lowest/least common ancestor approach described above to report taxonomic classifications at the genus level.
-To assess the impact of 6-frame translation of nucleotide sequence on classification accuracy, we compared classification accuracy between published proteome queries and (6-frame) translated genome queries.
-Using the same reference database, we selected an environmental dataset [@doi:] to assess the impact of genome completeness on taxonomic classification.
-We compared gather-LCA classification to GTDB-Tk, a tool 
-
-
-### Protein-level Taxonomic Classification
-We also generated nucleotide and protein Scaled MinHash reference databases for all GTDB representative genomes (release 95, n=31,910).
-
-
-
-
-![**K-mer Based Sequence Identity by Lowest Common Taxon**
-GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpathsANIAAI}
 
 **(DNA vs Protein)**
 - _(just containment, no ANI/AAI)_
@@ -205,9 +190,6 @@ As protein sequences are more conserved than their coding nucleotide sequences, 
 
 Exact matching of k-mers has long been deemed a shortcoming for k-mer based analyses, limiting similarity detection power across larger evolutionary distances. However, protein k-mers (and k-mers leveraging reduced protein alphabets) 
 
-
-Using nucleotide k-mers
-This property allows for low-level homology detection at the n
 
 Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes. 
 
@@ -225,99 +207,45 @@ containent = % of a genome's k-mers that are shared
 ![**Protein k-mer containment facilitates genus-level comparisons**
 10k pseudomonas genome sequences, median containment at each alphabet](images/pseudomonas_jaccard_vs_containment_prot10.png){#fig:evolpathsContain}
 
-
-#### k-size selection for optimal comparisons / distance estimation
-
-- num shared k-mers at different ksizes
-- 	e.g. k=7 much more common -- share far more k-mers. I assumed this would hurt, rather than help classification. Check!
--   do rankinfo on each database??
-
-because kmer size matters --> conversion to AAI is useful!?
-conversion to AAI does two things: accounts for k-mer length, ...
-
-
 ![**Protein k-mers facilitate comparisons across species**
 This currently uses the evolutionary paths dataset. Perhaps better to demonstrate with a different test set -- say, just the species, genus family level, using something like Pseudomonas that has a lot of published genomes. Also show jaccard to emphasize how it gets progressively worse when you start comparing genomes that are different sizes? Or separate figure for this...?](images/anchor-containment.nucl-prot.png){#fig:evolpathsContain}
 
 
 ![**Containment-based ANI, AAI estimates, evolpaths**](images/anchor-evoldistPC.nucl3-prot.png){#fig:evolpathsANI}
 
+### Alignment-free phylogeny recapitulates core-genome phylogeny
 
-	** core vs accessory distances **
-	ANI/AAI == really getting at _core_
+![**K-mer Based Sequence Identity by Lowest Common Taxon**
+GTDB Evolpaths dataset](images/anchor-mcANI-AAI.boxen.protnucl.png){#fig:evolpathsANIAAI}
+
+### Robust taxonomic classification using Sourmash Gather
+
+Ref databases are incomplete (may not have good representation of sp. of interest).
+Query genomes /mags/ metagenomes are incomplete.
+
+#### Benchmarking Taxonomic Classification
+
+First, we benchmarked protein-based gather classification using the high quality, highly complete reference genomes within the GTDB representative genome set.
+For each genus, we randomly selected one reference genome for inclusion in the benchmarking reference database (n=9428).
+For each genus with at least two species clusters, we randomly selected a second species within that genus for the test set of genomes (n=3911).
+Thus, each test genome shares genus-level taxonomy with one (and only one) genome in the reference database.
+Since we know that no test genome shares species-level taxonomy with the reference database, we used the lowest/least common ancestor approach described above to report taxonomic classifications at the genus level.
+To assess the impact of 6-frame translation of nucleotide sequence on classification accuracy, we compared classification accuracy between published proteome queries and (6-frame) translated genome queries.
+Using the same reference database, we selected an environmental dataset [@doi:] to assess the impact of genome completeness on taxonomic classification.
+
+We compared gather-LCA classification to `GTDB-Tk`, a tool ...
+
+We also generated nucleotide and protein Scaled MinHash reference databases for all GTDB representative genomes (release 95, n=31,910).
 
 
-### Scaled Minhash distance estimation is robust to completeness
-(unlike standard minhash https://drep.readthedocs.io/en/latest/choosing_parameters.html#importance-of-genome-completeness)
+#### Classification is robust to incompleteness of query genome and reference database
 
 
-### Protein containment searches enable Sensitive/fast/accurate taxonomic classification
-_(just containment, no ANI/AAI)_
-
-to do, classification:
-0. fix thumper (refactor branch) --> working + tests
-1. implement "leave one xx clade out classification check"
- --> instead of just ignoring exact matches, ignore any matches in same species/genus/family
-2. prelim figure for tara classification vs GTDB-Tk vs BAT
-  - classification of incomplete genomes
-  - for "contaminated" genomes .. can we randomly add contigs from diff species, see the impact? Like classification still works until xx% contaminated with something present in our database?
-3. ksize diffs for classification? k=7 vs k=10 vs k=11?
-  - time, sensitivity, specificity
-4. virus development! (could be separate paper)
-
-While more protein k-mers are shared across genomes within the same genus (and different species), min-set-cov + LCA allows us to find/report the most similar genome.
-
-#### benchmarking :: Leave one out classification
-_leave one clade out version? see CAT/BAT paper )_
-
-[protein vs dna]
-
-![Protein classification sensitivity](images/protein-sensitivity.rep-genus.gather.png){#fig:classification_sensitivity}
-
-include 6-frame translation works well for database search
-(sensitivity/specificity of Prodigal-translated vs 6-frame translated)
-
-CAT/BAT paper [@doi:10.1186/s13059-019-1817-x]
-("cat" = contig annotation, "bat" = bin annotation)
+#### Classification is robust to query genome contamination
 
 
 
-main point: more k-mers are shared = more k-mers available for matching
 
-#### Classification of incomplete and contaminated genomes
-
-#### virus classification
-
-#### euk classification?? Too much.
-
-
-### Containment-AAI enable alignment-free phylogenomic reconstruction
-_evolpaths analysis_
-
-
-Containment searches enable similiarity estimation, especially between genomes of different lengths. 
-
-Max containment normalizes the shared content by the smaller of the two genomes
-
-![**Max Containment to ANI and AAI.** 
-Containment calculation is guaranteed to be more similar to traditional calculation of Average Nucleotide Identity and Average Amino Acid Identity, which compared only the sections of genome that align. The shared k-mer content (containment numerator) can be thought of as the alignable sections of the genomes. 
-The denominator of the Jaccard index is the alignable sections + the unalignable sections. 
-The lower bound of the containment denominator will be the exact same as the numerator at 100% containment, where all k-mers are found within the comparison dataset. The upper bound will be the same as the Jaccard denominator, where all k-mers of the comparison dataset are found within the query dataset, and it is the query that contains any additional nonshared k-mers/unalignable sequence.
-](images/containment-ANI-AAI.png){#fig:containmentANI}
-
-### median AAI across GTDB?	
-
-
-
-#### alphabet and k-size selection for optimal distance estimation
-
-- num shared k-mers at different ksizes
-- 	e.g. k=7 much more common -- do rankinfo on each database! 
-
-### Comparison with other alignment-free methods (advantages, disadvantages, etc)
-
-
-Alignment-based metrics are looking at the specific sequence variation of aligned regions, while k-mer based comparisons are comparing shared k-mers vs distinct k-mers. Since each nucleotide polymorphims generates mutated k-mers with an expected frequency, k-mer containment estimates can be used to accurately estimate both the Average Nucleotide Identity and Average Amino Acid Identity  [@doi:10.1101/2021.01.15.426881; @doi:10.1186/s13059-016-0997-x]
 	
 
 ## Discussion
@@ -332,6 +260,27 @@ Cricuolo [@doi:10.12688/f1000research.26930.1] (suggests w/ appropriate correcti
 Here, we utilize Scaled MinHash sketches with Containment to overcome size differences between sequences being compared. 
 
 To accurately estimate sequence identity from sequence files of different sizes(genomes, metagenomes, etc), we employ Scaled Minhash sketches, which enables estimation of the Containment Index. 
+
+
+A number of methods have used discriminatory k-mer analysis for taxonomic classification. However, most rely upon first developing a reference of discriminatory k-mers, e.g. k-mers unique to / diagnostic of a taxonomic group.
+Instead, sourmash gather leverages the Containment Index to find the reference match that shares the largest number of k-mers with the query sequence.
+
+At k=21 (dna) and k=7 (protein), many k	-mers are shared across taxonomic groups.
+Unlike many k-mer based classifiers, we do not need to explicitly characterize the discriminatory k-mers for each taxonomic group.
+The Containment Index uses all matched k-mers between the query and each reference, finding the % of each reference genome present in the query.
+Gather then selects the most covered (highest percent contained) reference genome, thus utilizing the combination of shared and discriminatory k-mers to find the most parsimonious match.
+After finding the best match, all matched k-mers are removed for the query in order to repeat the analysis to find the next most parsimonious genome match.
+
+
+
+While this method is still dependent on a good set of reference genomes, updating the set of references with new data does not require recalculation of discriminatory k=mer sets...
+
+** discussion of k-mer size **
+
+- Scaled Minhash distance estimation is robust to completeness
+(unlike standard minhash https://drep.readthedocs.io/en/latest/choosing_parameters.html#importance-of-genome-completeness)
+
+
 
 
 
@@ -447,6 +396,74 @@ Reproducible workflows associated with this paper are available at XX (gh link +
 
 
 
+## To Do
+
+#### k-size selection for optimal comparisons / distance estimation
+
+- num shared k-mers at different ksizes
+- 	e.g. k=7 much more common -- share far more k-mers. I assumed this would hurt, rather than help classification. Check!
+-   do rankinfo on each database??
+
+because kmer size matters --> conversion to AAI is useful!?
+conversion to AAI does two things: accounts for k-mer length, ...
+
+
+### Classification
+
+0. fix thumper (refactor branch) --> working + tests
+1. implement "leave one xx clade out classification check"
+ --> instead of just ignoring exact matches, ignore any matches in same species/genus/family
+2. prelim figure for tara classification vs GTDB-Tk vs BAT
+  - classification of incomplete genomes
+  - for "contaminated" genomes .. can we randomly add contigs from diff species, see the impact? Like classification still works until xx% contaminated with something present in our database?
+3. ksize diffs for classification? k=7 vs k=10 vs k=11?
+  - time, sensitivity, specificity
+4. virus testing?
+
+#### benchmarking :: Leave one out classification
+_leave one clade out version? see CAT/BAT paper )_
+
+[protein vs dna]
+
+![Protein classification sensitivity](images/protein-sensitivity.rep-genus.gather.png){#fig:classification_sensitivity}
+
+include 6-frame translation works well for database search
+(sensitivity/specificity of Prodigal-translated vs 6-frame translated)
+
+CAT/BAT paper [@doi:10.1186/s13059-019-1817-x]
+("cat" = contig annotation, "bat" = bin annotation)
+
+
+main point: more k-mers are shared = more k-mers available for matching
+
+#### Classification of incomplete and contaminated genomes
+
+#### virus classification
+
+#### euk classification?? Too much.
+
+### median AAI across GTDB?	
+
+#### alphabet and k-size selection for optimal distance estimation
+
+- num shared k-mers at different ksizes
+- 	e.g. k=7 much more common -- do rankinfo on each database! 
+
+### Comparison with other alignment-free methods (advantages, disadvantages, etc)
+
+
+Alignment-based metrics are looking at the specific sequence variation of aligned regions, while k-mer based comparisons are comparing shared k-mers vs distinct k-mers. Since each nucleotide polymorphims generates mutated k-mers with an expected frequency, k-mer containment estimates can be used to accurately estimate both the Average Nucleotide Identity and Average Amino Acid Identity  [@doi:10.1101/2021.01.15.426881; @doi:10.1186/s13059-016-0997-x]
+
+
+Using nucleotide k-mers
+This property allows for low-level homology detection at the n
+
+### Add'l thoughts, etc
+
+	** core vs accessory distances **
+	ANI/AAI == really getting at _core_
+
+
 ## Leftover Text
 
 
@@ -455,6 +472,7 @@ Here, we apply k-mer based sequence identity estimation to generate taxonomic cl
 
 apply k-mer based sequence identity estimation with known taxonomic thresholds to report the most likely taxonomy for a given query genome.
 
+While more protein k-mers are shared across genomes within the same genus (and different species), min-set-cov + LCA allows us to find/report the most similar genome.
 
 
 ## Availability of data and materials
