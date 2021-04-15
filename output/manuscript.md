@@ -8,7 +8,7 @@ keywords:
 - MinHash
 - Containment
 lang: en-US
-date-meta: '2021-04-14'
+date-meta: '2021-04-15'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="citation_title" content="Alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-04-14" />
-  <meta name="citation_publication_date" content="2021-04-14" />
+  <meta name="dc.date" content="2021-04-15" />
+  <meta name="citation_publication_date" content="2021-04-15" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -60,7 +60,7 @@ manubot-clear-requests-cache: false
 <small><em>
 This manuscript
 was automatically generated
-on April 14, 2021.
+on April 15, 2021.
 </em></small>
 
 ## Authors
@@ -151,67 +151,68 @@ Here, we demonstrate that the utility of Scaled MinHash protein containment, bot
 
 ## Results
 
-### Accurate distance estimation from Maximum Containment
-_(Correlation between Scaled MinHash Containment and ANI)_
+### Accurate distance estimation from Scaled MinHash
+
+_ANI vs ANIb, FastANI_
+
+_Jaccard vs Containment?_
 
 Containment searches enable similiarity estimation, especially between genomes of different lengths.
 Max containment normalizes the shared content by the smaller of the two genomes
 
-![**Max Containment to ANI and AAI.** 
-Containment calculation is guaranteed to be more similar to traditional calculation of Average Nucleotide Identity and Average Amino Acid Identity, which compared only the sections of genome that align. The shared k-mer content (containment numerator) can be thought of as the alignable sections of the genomes. 
+![**Jaccard vs Maximum Containment to ANI and AAI.** 
+The Jaccard Index is strongly impacted by dataset size, and can be especially biased for datasets of different sizes.
+As the Containment Index is directional, the difference in dataset sizes are incorporated into
+Containment calculation is more similar to traditional calculation of Average Nucleotide Identity and Average Amino Acid Identity, which compared only the sections of genome that align. The shared k-mer content (containment numerator) can be thought of as the alignable sections of the genomes. 
 The denominator of the Jaccard index is the alignable sections + the unalignable sections. 
 The lower bound of the containment denominator will be the exact same as the numerator at 100% containment, where all k-mers are found within the comparison dataset. The upper bound will be the same as the Jaccard denominator, where all k-mers of the comparison dataset are found within the query dataset, and it is the query that contains any additional nonshared k-mers/unalignable sequence.
-](images/containment-ANI-AAI.png){#fig:containmentANI}
+](images/containment-ANI-AAI.png){#fig:containmentANI height=2in}
 
-
+<!---
 To assess the utility of Scaled MinHash techniques across evolutionary distance, we generated a series of "evolutionary paths" from the set of 31k representative GTDB genomes.
 Each evolutionary path offers six genome similarity comparisons at a range of evolutionary distances. 
 For each genome comparison, we estimated Average Nucleotide Identity (ANI) using fastANI [@doi:10.1038/s41467-018-07641-9] and Average Amino Acid Identity (AAI) using compareM [@url: https://github.com/dparks1134/CompareM].
+--->
 
 ![**Scaled MinHash ANI vs FastANI**
-GTDB Evolpaths Dataset](images/gtdb95-evolpaths.ANI-concordance.png){#fig:evolpathsANIvsfastANI}
+GTDB Evolpaths Dataset](images/gtdb95-evolpaths.ANI-concordance.png){#fig:evolpathsANIvsfastANI height=2in}
 
+### Protein k-mers enable distance estimation at increased evolutionary distances
 
-### Similarity detection and clustering at increased evolutionary distances
+K-mer analysis methods enable similarity detection as low as a single shared k-mer between divergent genomes.
+As a result, exact matching long nucleotide k-mers can be used for taxonomic classification between closely related genomes, including at the strain, species, and genus level (k-mer lengths 51, 31, and 21, respectively).
+At larger evolutionary distances, accumulated nucleotide divergence limits the utility of exact nucleotide k-mer matching. 
+As protein sequences are more conserved than their coding nucleotide sequences, exact matching of protein k-mers can enable distance estimation acrss larger evolutionary distances.
 
-Protein k-mers! <compare heatmap w/ max containment for subset of gtdb data?>
+_Protein k-mers vs nucleotide k-mers: Shared k-mers by taxonomic rank_
 
-![**Scaled MinHash AAI vs CompareM**
-GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpathsAAIvsCompareM}
+GTDB rankinfo: 
 
+  - xx% of DNA k-mers (k=21) are shared within-species
+  - yy% of protein k-mers are shared within-species
+  - zz% of DNA k-mers are shared within-genus ... etc 
 
-**(DNA vs Protein)**
-- _(just containment, no ANI/AAI)_
-- _include dayhoff or just protein?_
-
-K-mer analysis methods enable similarity detection as low as a single shared k-mer between divergent genomes. As a result, exact matching long nucleotide k-mers can be used for taxonomic classification between closely related genomes, including at the strain, species, and genus level (k-mer lengths 51, 31, and 21, respectively). At larger evolutionary distances, accumulated nucleotide divergence limits the utility of exact nucleotide k-mer matching. 
-
-As protein sequences are more conserved than their coding nucleotide sequences, exact matching of protein k-mers can detect sequence similarity in spite of synonymous nucleotide substitutions that may have accumulated across the two sequences.
-
-Exact matching of k-mers has long been deemed a shortcoming for k-mer based analyses, limiting similarity detection power across larger evolutionary distances. However, protein k-mers (and k-mers leveraging reduced protein alphabets) 
-
-
-Protein sequences are more conserved than their underlying DNA sequences. Whole-proteome MinHash sketches are more similar than whole-genome DNA sketches, enabling us to find protein-level similarity across divergent genomes. 
-
+<!--compare heatmap w/ max containment for subset of gtdb data?-->
+<!---
 For , e.g. Pseudomonas, XX% of k-mers are 	shared within the chosen/published genomes within species. For all published genomes within the genus, a median of xx% of k-mers are shared between genomes of one species and genomes of the a different species in the same genus.
 
-rankinfo ... 	at ksize of 10...
--xx% of DNA k-mers are shared within-species
--yy% of protein k-mers are shared within-species
-- zz% of DNA k-mers are shared within-genus
-... etc 
+
 == median or mean containment at rank?
 containent = % of a genome's k-mers that are shared
 -- do using ALL of gtdb, BUT, start with just a single set of genomes.. e.g. Pseudomonas? == similar to "shared k-mers" paper [@doi:10.24072/pci.genomics.100001]
 
 ![**Protein k-mer containment facilitates genus-level comparisons**
 10k pseudomonas genome sequences, median containment at each alphabet](images/pseudomonas_jaccard_vs_containment_prot10.png){#fig:evolpathsContain}
+--->
 
 ![**Protein k-mers facilitate comparisons across species**
 This currently uses the evolutionary paths dataset. Perhaps better to demonstrate with a different test set -- say, just the species, genus family level, using something like Pseudomonas that has a lot of published genomes. Also show jaccard to emphasize how it gets progressively worse when you start comparing genomes that are different sizes? Or separate figure for this...?](images/anchor-containment.nucl-prot.png){#fig:evolpathsContain}
 
+_AAI vs CompareM AAI_
 
-![**Containment-based ANI, AAI estimates, evolpaths**](images/anchor-evoldistPC.nucl3-prot.png){#fig:evolpathsANI}
+![**Scaled MinHash AAI vs CompareM**
+GTDB Evolpaths dataset](images/gtdb95-evolpaths.AAI-concordance.png){#fig:evolpathsAAIvsCompareM height=2in}
+
 
 ### Alignment-free phylogeny recapitulates core-genome phylogeny
 
@@ -354,7 +355,7 @@ These paths include genome comparisons across 33 phyla (29 Bacteria, 4 Archaea),
 While paths are limited to taxonomies with at least two GTDB representative genomes for each taxonomic rank, these paths provide a rich resource for comparisons at increasing evolutionary distances. 
 
 
-### Scaled MinHash Sequence Identity Correlates with Standard Methods
+### Scaled MinHash Distance Correlates with Standard Methods
 
 FastANI v1.32 ([@doi:10.1038/s41467-018-07641-9]; run with default parameters)  was used to obtain Average Nucleotide Identity between the anchor genome and each additional genome in its evolutionary path.
 FastANI is targeted at ANI values between 80%-100%, so only values in this range are considered "trusted" and used in **assessing the correlation between Scaled MinHash estimates and FastANI._(TBD)_**
@@ -473,6 +474,9 @@ Here, we apply k-mer based sequence identity estimation to generate taxonomic cl
 apply k-mer based sequence identity estimation with known taxonomic thresholds to report the most likely taxonomy for a given query genome.
 
 While more protein k-mers are shared across genomes within the same genus (and different species), min-set-cov + LCA allows us to find/report the most similar genome.
+
+original containmnet ANI/AAI plot
+<!--![**Containment-based ANI, AAI estimates, evolpaths**](images/anchor-evoldistPC.nucl3-prot.png){#fig:evolpathsANI}-->
 
 
 ## Availability of data and materials
