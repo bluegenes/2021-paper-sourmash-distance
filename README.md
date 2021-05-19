@@ -1,8 +1,8 @@
 # Output directory containing the formatted manuscript
 
-The [`gh-pages`](https://github.com/bluegenes/2021-sourmash-distance-paper/tree/gh-pages) branch hosts the contents of this directory at <https://bluegenes.github.io/2021-sourmash-distance-paper/>.
-The permalink for this webpage version is <https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/>.
-To redirect to the permalink for the latest manuscript version at anytime, use the link <https://bluegenes.github.io/2021-sourmash-distance-paper/v/freeze/>.
+The [`gh-pages`](https://github.com/bluegenes/2021-paper-sourmash-distance/tree/gh-pages) branch hosts the contents of this directory at <https://bluegenes.github.io/2021-paper-sourmash-distance/>.
+The permalink for this webpage version is <https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/>.
+To redirect to the permalink for the latest manuscript version at anytime, use the link <https://bluegenes.github.io/2021-paper-sourmash-distance/v/freeze/>.
 
 ## Files
 
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`493c95edf5f4ad2343c035844d02e66c6a4c95b3`](https://github.com/bluegenes/2021-sourmash-distance-paper/commit/493c95edf5f4ad2343c035844d02e66c6a4c95b3).
+[`c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe`](https://github.com/bluegenes/2021-paper-sourmash-distance/commit/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe).
