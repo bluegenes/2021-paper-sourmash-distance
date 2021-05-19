@@ -44,9 +44,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-paper-sourmash-distance/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-paper-sourmash-distance/v/a2d493d6cfd4689a9a673c60348b29961656f416/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/a2d493d6cfd4689a9a673c60348b29961656f416/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/a2d493d6cfd4689a9a673c60348b29961656f416/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/))
+([permalink](https://bluegenes.github.io/2021-paper-sourmash-distance/v/a2d493d6cfd4689a9a673c60348b29961656f416/))
 was automatically generated
-from [bluegenes/2021-paper-sourmash-distance@c3baa52](https://github.com/bluegenes/2021-paper-sourmash-distance/tree/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe)
+from [bluegenes/2021-paper-sourmash-distance@a2d493d](https://github.com/bluegenes/2021-paper-sourmash-distance/tree/a2d493d6cfd4689a9a673c60348b29961656f416)
 on May 19, 2021.
 </em></small>
 
@@ -308,7 +308,7 @@ As implemented in sourmash [@https://dib-lab.github.io/2020-paper-sourmash-gathe
 As k-mers are randomized prior to systematic subsampling, Scaled MinHash sketches are representative subsets that can be used for comparisons, as long as the k-mer size and chosen scaled value remain consistent. 
 Unlike traditional MinHash sketches, Scaled MinHash sketches enable similarity estimation with containment, which permits more accurate estimation of genomic distance when genomes or datasets differ in size [@doi:10.1016/j.amc.2019.02.018;@doi:10.1186/s13059-019-1875-0]. 
 
-Sourmash supports sketching from either nucleotide or protein input sequence.
+Sourmash v4.x supports sketching from either nucleotide or protein input sequence.
 All genome sequences were sketched with sourmash v4.0 using the `sourmash sketch dna` command, k-mer sizes of 21,31,51, a scaling factor of 1000. 
 Sourmash also supports 6-frame translation of nucleotide sequence to amino acid sequence.
 To assess the utility of these translated sketches, genome sequences were also sketched with the `sourmash sketch translate` command at protein k-sizes (_kaa-mer sizes?_) of 7-12 and a scaling factor of 100. 
@@ -325,6 +325,12 @@ Sourmash contains standard implementations of Jaccard Index [@doi:10.1186/s13059
 For a comparison between two genomes (genomeA, genomeB), the Jaccard Index represents the k-mers shared between the two genomes (sketch intersection) divided by the k-mers present in both sketches (sketch union).
 Thus the Jaccard Index represents the percent of shared k-mers relative to all k-mers across both genomes (intersection/genomeA+genomeB).
 MinHash Sketch Jaccard has been shown to correlate well with ANI at high sequence identities (>=90% sequence identity) [@doi:10.1186/s13059-016-0997-x]; (>=80% sequence identity [@doi:10.1038/s41467-018-07641-9].
+
+**Mash Distance from Scaled MinHash Jaccard**
+
+_TBD_
+
+
 
 **Estimating Sequence Similarity from Containment**
 As the Jaccard Index utilizes the union of all k-mers in a dataset, it is greatly affected by differences in dataset size [@doi:10.1093/bib/bbz083].

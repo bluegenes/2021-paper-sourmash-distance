@@ -19,9 +19,9 @@ contig
 contigs
 cov
 Cricuolo
-CTB
+ctb
 ctitusbrown
-Dataset
+dataset
 datasets
 downsampled
 Downsampling
@@ -46,7 +46,7 @@ ksizes
 LCA
 mer
 mers
-metagenome
+Metagenome
 metagenomes
 metagenomic
 metatranscriptomic
