@@ -9,10 +9,10 @@ ANIb
 Archaea
 archaeal
 benchmarked
-Benchmarking
+benchmarking
 bluegenes
 clade
-CompareM
+compareM
 compositional
 containmnet
 contig
@@ -46,7 +46,7 @@ ksizes
 LCA
 mer
 mers
-Metagenome
+metagenome
 metagenomes
 metagenomic
 metatranscriptomic
