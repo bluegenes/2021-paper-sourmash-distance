@@ -38,15 +38,15 @@ header-includes: |-
   <meta name="citation_author_institution" content="Department of Population Health and Reproduction, University of California, Davis" />
   <meta name="citation_author_orcid" content="0000-0001-6001-2677" />
   <meta name="twitter:creator" content="@ctitusbrown" />
-  <link rel="canonical" href="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
-  <meta property="og:url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
-  <meta property="twitter:url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
-  <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
-  <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf" />
-  <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/manuscript.pdf" />
+  <link rel="canonical" href="https://bluegenes.github.io/2021-paper-sourmash-distance/" />
+  <meta property="og:url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/" />
+  <meta property="twitter:url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/" />
+  <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/" />
+  <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-paper-sourmash-distance/manuscript.pdf" />
+  <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-paper-sourmash-distance/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,9 +68,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/))
+([permalink](https://bluegenes.github.io/2021-paper-sourmash-distance/v/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe/))
 was automatically generated
-from [bluegenes/2021-sourmash-distance-paper@493c95e](https://github.com/bluegenes/2021-sourmash-distance-paper/tree/493c95edf5f4ad2343c035844d02e66c6a4c95b3)
+from [bluegenes/2021-paper-sourmash-distance@c3baa52](https://github.com/bluegenes/2021-paper-sourmash-distance/tree/c3baa52b5e6b1dfe0e16f942ea876bbc5c0a29fe)
 on May 19, 2021.
 </em></small>
 

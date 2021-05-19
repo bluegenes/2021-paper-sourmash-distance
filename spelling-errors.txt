@@ -12,14 +12,14 @@ benchmarked
 Benchmarking
 bluegenes
 clade
-compareM
+CompareM
 compositional
 containmnet
 contig
 contigs
 cov
 Cricuolo
-ctb
+CTB
 ctitusbrown
 Dataset
 datasets
@@ -38,7 +38,7 @@ GTDB
 iHMP
 Irber
 iteratively
-jaccard
+Jaccard
 kaa
 kmer
 ksize
