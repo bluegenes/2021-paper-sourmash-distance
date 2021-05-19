@@ -1,4 +1,4 @@
-# Alignment-free distance Estimation with Sourmash
+# Alignment-free distance estimation with sourmash
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
 [![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://bluegenes.github.io/2021-sourmash-distance-paper/)
