@@ -8,7 +8,7 @@ keywords:
 - MinHash
 - Containment
 lang: en-US
-date-meta: '2021-04-15'
+date-meta: '2021-05-19'
 author-meta:
 - N. Tessa Pierce-Ward
 - C. Titus Brown
@@ -22,8 +22,8 @@ header-includes: |-
   <meta name="citation_title" content="Alignment-free distance estimation across the tree of life" />
   <meta property="og:title" content="Alignment-free distance estimation across the tree of life" />
   <meta property="twitter:title" content="Alignment-free distance estimation across the tree of life" />
-  <meta name="dc.date" content="2021-04-15" />
-  <meta name="citation_publication_date" content="2021-04-15" />
+  <meta name="dc.date" content="2021-05-19" />
+  <meta name="citation_publication_date" content="2021-05-19" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -38,15 +38,15 @@ header-includes: |-
   <meta name="citation_author_institution" content="Department of Population Health and Reproduction, University of California, Davis" />
   <meta name="citation_author_orcid" content="0000-0001-6001-2677" />
   <meta name="twitter:creator" content="@ctitusbrown" />
-  <link rel="canonical" href="https://bluegenes.github.io/2021-ani-paper/" />
-  <meta property="og:url" content="https://bluegenes.github.io/2021-ani-paper/" />
-  <meta property="twitter:url" content="https://bluegenes.github.io/2021-ani-paper/" />
-  <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-ani-paper/" />
-  <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-ani-paper/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-ani-paper/v/300e3fab57f80fb11751770c2019144454a7f3d2/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/300e3fab57f80fb11751770c2019144454a7f3d2/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-ani-paper/v/300e3fab57f80fb11751770c2019144454a7f3d2/manuscript.pdf" />
+  <link rel="canonical" href="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
+  <meta property="og:url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
+  <meta property="twitter:url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
+  <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/" />
+  <meta name="citation_pdf_url" content="https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf" />
+  <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -68,10 +68,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2021-ani-paper/v/300e3fab57f80fb11751770c2019144454a7f3d2/))
+([permalink](https://bluegenes.github.io/2021-sourmash-distance-paper/v/493c95edf5f4ad2343c035844d02e66c6a4c95b3/))
 was automatically generated
-from [bluegenes/2021-ani-paper@300e3fa](https://github.com/bluegenes/2021-ani-paper/tree/300e3fab57f80fb11751770c2019144454a7f3d2)
-on April 15, 2021.
+from [bluegenes/2021-sourmash-distance-paper@493c95e](https://github.com/bluegenes/2021-sourmash-distance-paper/tree/493c95edf5f4ad2343c035844d02e66c6a4c95b3)
+on May 19, 2021.
 </em></small>
 
 ## Authors

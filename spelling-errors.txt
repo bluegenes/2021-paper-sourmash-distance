@@ -12,16 +12,16 @@ benchmarked
 Benchmarking
 bluegenes
 clade
-CompareM
+compareM
 compositional
 containmnet
 contig
 contigs
 cov
 Cricuolo
-CTB
+ctb
 ctitusbrown
-dataset
+Dataset
 datasets
 downsampled
 Downsampling
@@ -38,7 +38,7 @@ GTDB
 iHMP
 Irber
 iteratively
-Jaccard
+jaccard
 kaa
 kmer
 ksize
@@ -72,7 +72,7 @@ rRNA
 saltyscientist
 similiarity
 snakemake
-Sourmash
+sourmash
 subsample
 subsampling
 subsequences
