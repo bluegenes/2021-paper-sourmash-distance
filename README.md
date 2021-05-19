@@ -1,22 +1,16 @@
-# Automated scholarly manuscripts on GitHub
-
-
-**while this repo is private, these manuscript links won't work. Please look in the `output` folder!**
-
+# Alignment-free distance Estimation with Sourmash
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
-[![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://bluegenes.github.io/2021-ani-paper/)
-[![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://bluegenes.github.io/2021-ani-paper/manuscript.pdf)
-[![GitHub Actions Status](https://github.com/bluegenes/2021-ani-paper/workflows/Manubot/badge.svg)](https://github.com/bluegenes/2021-ani-paper/actions)
-[![Travis Build Status](https://travis-ci.com/bluegenes/2021-ani-paper.svg?branch=main)](https://travis-ci.com/bluegenes/2021-ani-paper)
+[![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://bluegenes.github.io/2021-sourmash-distance-paper/)
+[![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf)
+[![GitHub Actions Status](https://github.com/bluegenes/2021-sourmash-distance-paper/workflows/Manubot/badge.svg)](https://github.com/bluegenes/2021-sourmash-distance-paper/actions)
 <!-- usage note: delete CI badges above for services not used by your manuscript -->
 
 ## Manuscript description
 
 <!-- usage note: edit this section. -->
 
-This repository is a template manuscript (a.k.a. rootstock).
-Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.md)) and replace this paragraph with a description of their manuscript.
+In-progress manuscript on alignment-free distance estimation with sourmash.
 
 ## Manubot
 
@@ -82,11 +76,11 @@ Whenever a pull request is opened, CI (continuous integration) will test whether
 The build process aims to detect common errors, such as invalid citations.
 If your pull request build fails, see the CI logs for the cause of failure and revise your pull request accordingly.
 
-When a commit to the `main` branch occurs (for example, when a pull request is merged), CI builds the manuscript and writes the results to the [`gh-pages`](https://github.com/bluegenes/2021-ani-paper/tree/gh-pages) and [`output`](https://github.com/bluegenes/2021-ani-paper/tree/output) branches.
+When a commit to the `main` branch occurs (for example, when a pull request is merged), CI builds the manuscript and writes the results to the [`gh-pages`](https://github.com/bluegenes/2021-sourmash-distance-paper/tree/gh-pages) and [`output`](https://github.com/bluegenes/2021-sourmash-distance-paper/tree/output) branches.
 The `gh-pages` branch uses [GitHub Pages](https://pages.github.com/) to host the following URLs:
 
-+ **HTML manuscript** at https://bluegenes.github.io/2021-ani-paper/
-+ **PDF manuscript** at https://bluegenes.github.io/2021-ani-paper/manuscript.pdf
++ **HTML manuscript** at https://bluegenes.github.io/2021-sourmash-distance-paper/
++ **PDF manuscript** at https://bluegenes.github.io/2021-sourmash-distance-paper/manuscript.pdf
 
 For continuous integration configuration details, see [`.github/workflows/manubot.yaml`](.github/workflows/manubot.yaml) if using GitHub Actions or [`.travis.yml`](.travis.yml) if using Travis CI.
 
@@ -101,7 +95,7 @@ We encourage users to openly license their manuscripts, which is the default as 
 [![License: CC0 1.0](https://img.shields.io/badge/License%20Parts-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 Except when noted otherwise, the entirety of this repository is licensed under a CC BY 4.0 License ([`LICENSE.md`](LICENSE.md)), which allows reuse with attribution.
-Please attribute by linking to https://github.com/bluegenes/2021-ani-paper.
+Please attribute by linking to https://github.com/bluegenes/2021-sourmash-distance-paper.
 
 Since CC BY is not ideal for code and data, certain repository components are also released under the CC0 1.0 public domain dedication ([`LICENSE-CC0.md`](LICENSE-CC0.md)).
 All files matched by the following glob patterns are dual licensed under CC BY 4.0 and CC0 1.0:
@@ -121,4 +115,4 @@ All other files are only available under CC BY 4.0, including:
 + `*.pdf`
 + `*.docx`
 
-Please open [an issue](https://github.com/bluegenes/2021-ani-paper/issues) for any question related to licensing.
+Please open [an issue](https://github.com/bluegenes/2021-sourmash-distance-paper/issues) for any question related to licensing.
